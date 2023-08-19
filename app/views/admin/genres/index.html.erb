@@ -1,17 +1,12 @@
 <div class="container">
+  <h3>ジャンル一覧・追加</h3>
   <div class="row">
-    
+    <%= form_with model: [:admin, @genre] do |f| %>
+      <div class="form-group">
+        <%= f.label "ジャンル名" %>
+        <%= f.text_field :name, :placeholder => "ジャンル名"%>
+        <%= f.submit "新規登録" %>
+      </div>
+    <% end %>
   </div>
-  <table>
-    <thead>
-      <tr>
-        <th>ジャンル</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-      
-      
-    </tbody>
-  </table>
 </div>
