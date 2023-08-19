@@ -1,0 +1,28 @@
+<div class="container px-5 px-sm-0">
+  <div class="row">
+   <div class='col-md-3'>
+      <h3>ジャンル</h3>
+  </div>
+   <div class="col-md-8 offset-md-1">
+    <div class="top-image">
+      <img src="">
+      <div class="text-center mt-5">
+        <p>
+         ようこそ、ながのCAKEへ！</br>
+         このサイトは、ケーキ販売のECサイトになります。</br>
+         会員でない方も商品の閲覧はできますが、</br>
+         購入には会員登録が必要になります。
+        </p>
+      </div>
+    </div>
+    <h3>新着商品</h3>
+    <div class="row">
+      <%= @products.each do |product| %>
+       <div class="col-md-3　p-1 m-1">
+         
+       </div>
+       <%= link_to "全ての商品を見る >", products_path, class: "d-flex justify-content-end" %>
+    </div>
+   </div>
+  </div>
+</div>

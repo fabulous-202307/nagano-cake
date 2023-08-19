@@ -1,6 +1,12 @@
 class Order < ApplicationRecord
 
   belongs_to :customer
+  
+  enum status: {
+    waiting_payment: 0,
+    confirm_payment: 1,
+    shipped
+  }
 
   has_many :order_details, dependent: :destroy
 

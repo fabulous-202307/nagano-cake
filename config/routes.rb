@@ -10,4 +10,10 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
+  namespace :admin do
+    root to: "homes#top"
+    resources :products, only: %i[:new, :create, :index, :show, :edit, :update, ]
+    resources :orders, only: %i[show update]
+  end
+
 end
