@@ -43,7 +43,7 @@ class Admin::HomesController < ApplicationController
   end
 
   def total_sales(orders)
-    orders.sum(:billing_amount)
+    orders.sum(:billing_fee)
   end
-
+  
 end
