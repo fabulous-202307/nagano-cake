@@ -1,9 +1,9 @@
 <div class="container">
-  
+
   <div class="row">
     <h3>商品新規登録</h3>
   </div>
-  
+
     <%= form_with model: [:admin, @product] do |f| %>
 
       <div class="form-group row">
@@ -20,20 +20,24 @@
       </div>
       <div class="form-group row">
         <%= f.label "税抜価格" %>
-        <%= f.text_field :price %>
+        <%= f.text_field :price %>円
+      </div>
+      <div>
+        <%= f.label "ジャンル" %>
+        <%= f.collection_select :genre_id, Genre.all, :id, :name %>
       </div>
       <div class="availability row">
         <%= f.radio_button :is_available, true %>
         <%= f.label :is_available, "販売中" %>
-        
+
         <%= f.radio_button :is_available, false %>
         <%= f.label :is_available, "販売停止中" %>
       </div>
-      
+
       <%= f.submit "新規登録" %>
-    
+
     <% end %>
-  
+
 </div>
 
 
