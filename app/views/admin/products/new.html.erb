@@ -24,7 +24,7 @@
       </div>
       <div>
         <%= f.label "ジャンル" %>
-        <%= f.collection_select :genre_id, Genre.all, :id, :name %>
+        <%= f.collection_select :genre_id, @genres, :id, :name %>
       </div>
       <div class="availability row">
         <%= f.radio_button :is_available, true %>
