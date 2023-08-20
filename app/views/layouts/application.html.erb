@@ -17,14 +17,9 @@
      <i class= "fas fa-sign-out-alt"></i>ログアウト
     <% end %>
 
-
     <main>
-      <div>
-       <%= flash[:notice] %>
-      </div>
-
-      <div><%= yield %></div>
-
+      <p id="notice"><%= notice %></p>
+      <%= yield %>
     </main>
 
     <footer>
@@ -32,6 +27,6 @@
         <P></P>
       </div>
     </footer>
-
+    
   </body>
 </html>
