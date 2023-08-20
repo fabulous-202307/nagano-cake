@@ -10,4 +10,58 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  scope module: :public do
+    resources :cart_items, onry: [:index, :create, :update, :destroy] do
+      collection do
+        delete 'destroy_all'
+      end
+    end
+  end
 end
+

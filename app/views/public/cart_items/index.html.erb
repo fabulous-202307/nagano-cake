@@ -1,0 +1,53 @@
+<!-- フラッシュメッセージ -->
+<% if flash[:notice] %>
+ <div class="notice">
+  <%= flash[:notice] %>
+ </div>
+<% end %>
+<div class="container mt-5">
+<!-- カートを空にするボタン -->
+  <div class="col text-right">
+   <%= link_to "カートを空にする", destroy_all_cart_items_path, class: "btn btn-danger", method: :delete %>
+ </div>
+<!-- ショッピングカートのテーブル -->
+<h3 class="font-weight-bold">ショッピングカート</h3>
+    <table class="table table-bordered mt-5">
+     <thead class="table-active">
+      <tr>
+        <th class="col-4">商品名</th>
+        <th class="col-2">単価(税込)</th>
+        <th class="col-2">数量</th>
+        <th class="col-2">小計</th>
+        <th class="col-2"></th>
+       </tr>
+      </thead>
+      <tbody>
+      <% @cart_items.each do |cart_item| %>
+       <tr>
+        <td class="col-4"><%= image_tag cart_item.product.get_image(30,20) %><%= cart_item.product.name %></td>
+        <!-- 消費税を求めるメソッドをproduct.rbに定義 -->
+        <td class="col-2"><%= cart_item.product.with_tax_price %></td>
+        <td class="col-2"><%= form.select :amount, (1..5).to_a %><%= form.submit "変更", class: "btn btn-success" %></td>
+        <!-- 小計を求めるメソッドをcart_item.rbに定義 -->
+        <td class="col-2"><%= cart_item.subtotal %></td>
+        <td class="col-2"><%= link_to "削除する", cart_items_path, method: :delete, class: "btn btn-danger" %></td>
+       </tr>
+        <% end %>
+     </tbody>
+    </table>
+    <!-- 合計金額のテーブル -->
+   <div class="col-3">
+    <table class="table table-bordered mt-5" >
+     <tr>
+      <th class="col-8 table-active">合計金額</th>
+      <td class="col-4">¥<%= @total_price %></td>
+     </tr>
+   </table>
+  </div>
+
+  <%= link_to "買い物を続ける", cart_items_path, class: "btn btn-primary" %>
+  <%= link_to "情報入力に進む", cart_items_path, class: "col-3 btn btn-success" %>
+
+</div>
+
+
