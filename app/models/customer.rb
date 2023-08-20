@@ -21,4 +21,5 @@ class Customer < ApplicationRecord
   # 郵便番号（ハイフンなし7桁）
   validates :post_code, format: { with: /\A\d{7}\z/ }
 
+
 end
