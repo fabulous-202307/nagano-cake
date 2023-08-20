@@ -6,6 +6,7 @@ class Admin::CustomersController < ApplicationController
   end
   
   def new
+    
   end
   
   def show

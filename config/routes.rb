@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   devise_for :admin,skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
-  
+
   namespace :admin do
+    resources :products, only: %i[:new, :create, :index, :show, :edit, :update, ]
     resources :customers, only: %i[ index new create show edit update]
   end
 
