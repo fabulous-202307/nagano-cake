@@ -1,6 +1,5 @@
 class Admin::OrdersController < ApplicationController
   before_action :authenticate_admin!
-  before_action :set_order
 
   
   # 注文のステータスを更新するアクション
@@ -17,9 +16,6 @@ class Admin::OrdersController < ApplicationController
   private
   
    # ストロングパラメーターの定義
-  def set_order
-    @order = Order.find(params[:id])
-  end
 
   def order_params
     params.require(:order).permit(:status)
