@@ -26,42 +26,43 @@
           <ul class="navbar-nav ml-auto">
          <% if customer_signed_in? %>
             <li>
-              <%= link_to current_user, class: "nav-link text-light" do %>
+              <%= link_to root_path, class: "nav-link text-light" do %>
                 <i style="color: white"></i>マイページ
               <% end %>
             </li>
             <li>
-              <%= link_to users_path, class: "nav-link text-light" do %>
+              <%= link_to root_path, class: "nav-link text-light" do %>
                 <i style="color: white"></i>商品一覧
               <% end %>
             </li>
             <li>
-              <%= link_to  books_path, class: "nav-link text-light" do %>
+              <%= link_to  root_path, class: "nav-link text-light" do %>
                 <i style="color: white"></i>カート
               <% end %>
             </li>
             <li>
               <%= link_to  destroy_customer_session_path, method: :delete, class: "nav-link text-light" do %>
-                <i style="color: white"></i>ログアウト
+                <i style="color: white"></i>
+                ログアウト
               <% end %>
             </li>
-            <% if public_singed_in? %>
+            <% elsif admin_signed_in? %>
               <li>
-              <%= link_to about_path, class: "nav-link text-light" do %>
+              <%= link_to root_path, class: "nav-link text-light" do %>
                 <i style="color: white"></i>商品一覧
               <% end %>
               <li>
-              <%= link_to about_path, class: "nav-link text-light" do %>
+              <%= link_to root_path, class: "nav-link text-light" do %>
                 <i style="color: white"></i>会員一覧
               <% end %>
             </li>
             <li>
-              <%= link_to about_path, class: "nav-link text-light" do %>
+              <%= link_to root_path, class: "nav-link text-light" do %>
                 <i style="color: white"></i>注文一覧
               <% end %>
             </li>
             <li>
-              <%= link_to new_user_registration_path,class: "nav-link text-light" do %>
+              <%= link_to root_path,class: "nav-link text-light" do %>
                 <i style="color: white"></i>ジャンル一覧
               <% end %>
             </li>
@@ -70,21 +71,22 @@
                 <i style="color: white"></i>ログアウト
               <% end %>
             </li>
-          <% end %>
+
             <% else %>
             <li>
-              <%= link_to about_path, class: "nav-link text-light" do %>
+              <%= link_to root_path, class: "nav-link text-light" do %>
                 <i style="color: white"></i>About
               <% end %>
             </li>
             <li>
-              <%= link_to about_path, class: "nav-link text-light" do %>
+              <%= link_to root_path, class: "nav-link text-light" do %>
                 <i style="color: white"></i>商品一覧
               <% end %>
             </li>
             <li>
               <%= link_to new_customer_registration_path,class: "nav-link text-light" do %>
-                <i style="color: white"></i>新規登録
+                <i style="color: white"></i>
+                新規登録
               <% end %>
             </li>
             <li>
@@ -104,7 +106,8 @@
     <P></P>
     </div>
   </footer>
-    
-    
+
+
   </body>
 </html>
+
