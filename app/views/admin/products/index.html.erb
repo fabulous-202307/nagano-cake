@@ -18,7 +18,13 @@
           <td><%= product.name %></td>
           <td><%= product.price %></td>
           <td><%= product.genre.name %></td>
-          <td><%= product.is_available %></td>
+          <td class="font-weight-bold">
+            <% if product.is_available %>
+              <p class="text-success">販売中</p>
+            <% else %>
+              <p class="text-secondary">販売停止中</p>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>
