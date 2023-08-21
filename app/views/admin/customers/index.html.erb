@@ -19,6 +19,7 @@
             <td class="<%= customer.is_valid ? "text-gray" : "text-green" %>"><%= customer.is_valid ? "退会済み" : "有効" %></td>
           </tr>
          <% end %>
+         <%= paginate @customers %>
       </table>
   </div>
 </div>
