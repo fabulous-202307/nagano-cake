@@ -8,4 +8,4 @@
 
 
 # 管理者登録
-Admin.create!(email: "admin@email.com", password: "adminpass")a
+Admin.create!(email: "admin@email.com", password: "adminpass")
