@@ -13,8 +13,6 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :products, only: [:new, :create, :index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
-
-
   end
 
 
@@ -23,6 +21,7 @@ Rails.application.routes.draw do
     resources :customers, only: [:show, :edit, :update, :index]
   end
 
-
+  get  "/customers/check" => "customers#check"
+  patch  '/customers/withdraw' => 'customers#withdraw'
 
 end

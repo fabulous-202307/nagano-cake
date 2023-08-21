@@ -7,7 +7,7 @@
   </div>
 
   <table class="table table-bordered my-3" >
-  <col span="1" bgcolor="#14FFD4" >
+    <col span="1" bgcolor="#14FFD4" >
     <tbody>
       <tr>
         <th>氏名</th>
@@ -37,12 +37,11 @@
   </table>
   <div class="mb-2">
     <span class="font-weight-bold">配送先</span>
-    <%= link_to "一覧を見る ", root_path(@customer.id), class:"btn btn-sm btn-primary" %>
+    <%= link_to "一覧を見る ", root_path, class:"btn btn-sm btn-primary" %>
   </div>
   <div class="mb-2">
     <span class="font-weight-bold">注文履歴</span>
-    <%= link_to "一覧を見る ", root_path(@customer.id), class:"btn btn-sm btn-primary" %>
+    <%= link_to "一覧を見る ", root_path, class:"btn btn-sm btn-primary" %>
   </div>
 
 </div>
-
