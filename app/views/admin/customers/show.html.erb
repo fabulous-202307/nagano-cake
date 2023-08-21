@@ -1,0 +1,27 @@
+<h2><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h2>
+<table>
+  <tbody>
+    <tr>
+      <th>会員ID</th>
+      <td><%= @customer.id %></td>
+    </tr>
+    <tr>
+      <th>氏名</th>
+      <td><%= @customer.last_name %>  <%= @customer.first_name %></td>
+    </tr>
+    <tr>
+      <th>メールアドレス</th>
+      <td><%= @customer.email %></td>
+    </tr>
+    <tr>
+      <th>会員ステータス</th>
+      <td>
+        <% if @customer.is_valid_status == false %>
+          <span>退会済</span>
+        <% else %>
+          <span>有効</span>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>
