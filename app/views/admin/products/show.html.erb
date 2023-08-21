@@ -1,10 +1,13 @@
 <div class="container mt-5">
   
-  <h5 class="font-weight-bold ml-5 pl-5">商品詳細</h5>
+  <div class="row font-weight-bold ml-5 pl-5">
+    <h5>商品詳細</h5>
+  </div>
+  
   
   <div class="row p-5">
-    <div class="col-lg-3">
-      <%=image_tag @product.get_image(400, 400) %>
+    <div class="col-lg-3 mr-3">
+      <%=image_tag @product.get_image(300, 300) %>
     </div>
     
     <div class="col-lg-6 offset-lg-1">
