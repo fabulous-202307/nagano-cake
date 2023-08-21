@@ -1,5 +1,4 @@
 class Admin::HomesController < ApplicationController
-   before_action :authenticate_admin!
 
   def home
     @orders, @selected = get_orders(params)
