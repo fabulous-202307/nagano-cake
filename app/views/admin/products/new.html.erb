@@ -12,15 +12,15 @@
       </div>
       <div class="form-group row">
         <%= f.label "商品名" %>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, autofocus: true %>
       </div>
       <div class="form-group row">
         <%= f.label "商品説明" %>
-        <%= f.text_area :detail %>
+        <%= f.text_area :detail, autofocus: true %>
       </div>
       <div class="form-group row">
         <%= f.label "税抜価格" %>
-        <%= f.text_field :price %>円
+        <%= f.text_field :price, autofocus: true %>円
       </div>
       <div>
         <%= f.label "ジャンル" %>
