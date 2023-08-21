@@ -14,9 +14,9 @@
          <% @customers.each do |customer| %>
           <tr>
             <td><%= customer.id %></td>
-            <td><%= customer.first_name %><%= customer.last_name %></td>
+            <td><%= link_to customer.full_name, admin_customer_path(customer) %></td>
             <td><%= customer.email %></td>
-            <td class="<%= customer.is_valid ? "text-gray" : "text-green" %>"><%= customer.is_valid ? "退会済み" : "有効" %></td>
+            <td><%= customer.customer_status %></td>
           </tr>
          <% end %>
          <%= paginate @customers %>
