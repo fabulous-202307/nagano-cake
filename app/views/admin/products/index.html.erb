@@ -1,6 +1,6 @@
 <div class="container">
   <h3>商品一覧</h3>
-  
+
   <table class="table">
     <thead>
       <tr>
@@ -15,7 +15,9 @@
       <% @products.each do |product| %>
         <tr>
           <td><%= product.id %></td>
-          <td><%= product.name %></td>
+          <td>
+            <%= link_to product.name, admin_product_path(product.id) %>
+          </td>
           <td><%= product.price %></td>
           <td><%= product.genre.name %></td>
           <td class="font-weight-bold">
@@ -29,4 +31,8 @@
       <% end %>
     </tbody>
   </table>
+  <div class="d-flex justify-content-center">
+    <%= paginate @products %>
+  </div>
+  
 </div>
