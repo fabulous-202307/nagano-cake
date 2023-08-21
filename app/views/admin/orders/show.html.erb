@@ -1,9 +1,9 @@
 <div class="container">
   <h4 class="margin-y">注文履歴詳細</h4>
-  
+
   <table>
     <tbody>
-      
+
       <tr>
         <th>購入者</th>
         <td>
@@ -12,35 +12,40 @@
           <% end %>
         </td>
       </tr>
-      
+
       <tr>
         <th>注文日</th>
         <td>
           <%= @order.created_at.strftime("%Y/%m/%d") %>
         </td>
       </tr>
-      
+
       <tr>
         <th>配送先</th>
         <td>
           <%= @order_address %>
         </td>
       </tr>
-      
+
       <tr>
         <th>支払方法</th>
         <td>
           <%= @order.payment_method_i18n %>
         </td>
       </tr>
-      
+
       <tr>
         <th>注文ステータス</th>
         <td>
           <%= form_with model: @order, url: admin_order_path do |f| %>
-            <%= f.select :status, Order.status.keys %>
+            <%= f.select :status, Order.statuses.keys %>
+            <%= f.submit "更新", class:"btn btn-sm btn-success" %>
+          <% end %>
         </td>
       </tr>
     </tbody>
   </table>
+  <div class="col-md-5 offset-md-1">
+    <%= render "order_table", order_detail: @order_details %>
+  </div>
 </div>
