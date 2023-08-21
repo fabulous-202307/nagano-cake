@@ -1,5 +1,12 @@
 class Admin::OrdersController < ApplicationController
-  before_action :authenticate_admin!
+  
+  def show
+    @order = Order.find(params[:id])
+    @customer = @order.customer
+    @customer_name = @customer.last_name + @customer.first_name
+    @order_address = "〒#{@order.post_code.to_s.insert(3, "-")} #{@order.address} #{@customer_name}"
+    @order_details = @order.order_details
+  end
 
   
   # 注文のステータスを更新するアクション

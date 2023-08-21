@@ -1,0 +1,46 @@
+<div class="container">
+  <h4 class="margin-y">注文履歴詳細</h4>
+  
+  <table>
+    <tbody>
+      
+      <tr>
+        <th>購入者</th>
+        <td>
+          <%= link_to admin_customers_path(@customer) do %>
+          <%= @customer_name %>
+          <% end %>
+        </td>
+      </tr>
+      
+      <tr>
+        <th>注文日</th>
+        <td>
+          <%= @order.created_at.strftime("%Y/%m/%d") %>
+        </td>
+      </tr>
+      
+      <tr>
+        <th>配送先</th>
+        <td>
+          <%= @order_address %>
+        </td>
+      </tr>
+      
+      <tr>
+        <th>支払方法</th>
+        <td>
+          <%= @order.payment_method_i18n %>
+        </td>
+      </tr>
+      
+      <tr>
+        <th>注文ステータス</th>
+        <td>
+          <%= form_with model: @order, url: admin_order_path do |f| %>
+            <%= f.select :status, Order.status.keys %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
