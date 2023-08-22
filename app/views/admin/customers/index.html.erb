@@ -4,15 +4,14 @@
 
       <table class="table">
         <thead>
-          <tbody>
           <tr>
             <th>会員ID</th>
             <th>氏名</th>
             <th>メールアドレス</th>
             <th>ステータス</th>
           </tr>
-          </tbody>
         </thead>
+        <tdody>
          <% @customers.each do |customer| %>
           <tr>
             <td><%= customer.id %></td>
@@ -22,6 +21,7 @@
           </tr>
          <% end %>
          <%= paginate @customers %>
+         </tdody>
       </table>
   </div>
 </div>
