@@ -20,7 +20,8 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     resources :products, only: [:index, :show]
-    resources :cart_items, only:[:new, :create]
+    resources :cart_items, only: [:new, :create]
+    get "/:genre", to: "products#genre_products", as: "genre_products"
   end
 
 end
