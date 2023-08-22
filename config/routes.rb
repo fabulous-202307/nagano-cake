@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     resources :products, only: [:index, :show]
+    resources :cart_items, only:[:new, :create]
   end
 
 end

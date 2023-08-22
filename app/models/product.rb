@@ -22,8 +22,13 @@ class Product < ApplicationRecord
     image.variant(resize_to_fill: [width, height]).processed
   end
 
+  # 税込価格
   def with_tax_price
     (price * 1.1).floor
   end
+  
+  # def sale_status
+  #   if :is_available
+  # end
 
 end

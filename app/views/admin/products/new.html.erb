@@ -22,7 +22,7 @@
           </tr>
           <tr>
             <th><%= f.label "ジャンル" %></th>
-            <td><%= f.collection_select :genre_id, @genres, :id, :name %></td>
+            <td><%= f.collection_select :genre_id, @genres, :id, :name, prompt: "--選択してください--" %></td>
           </tr>
           <tr>
             <th><%= f.label "税抜価格" %></th>
