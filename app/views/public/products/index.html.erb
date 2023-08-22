@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    
+    <div class="col-2">
+      
+    </div>
+    
+    <div class="col-10">
+      <h2>商品一覧(全x<%= @count_products%>件)</h2>
+        <div class="row d-flex flex-wrap">
+        <% @products.each do |product| %>
+          <%= link_to product_path(product.id) do %>
+            <div>
+              <%= image_tag product.get_image(300, 300) %><br>
+              <%= product.name %><br>
+              <%= number_to_currency(product.with_tax_price, unit: "¥", format: "%u %n" ) %>
+            </div>
+          <% end %>
+        <% end %>
+        <div>
+      <%= paginate @products %>
+    </div>
+    
+  </div>
+</div>
