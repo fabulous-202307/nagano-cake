@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col">
       <h4 class="my-5"><%= @customer.full_name %>さんの会員情報</h4>
+      <%= form_with model: @customer, url: admin_customer_path(@customer) do |f| %>
       <table class="table table-borderless">
-        <%= form_with model: [:admin, @customer] do |f| %>
         <tr>
           <td>会員ID</td>
           <td><%= @customer.id %></td>
@@ -58,8 +58,8 @@
           <td></td>
           <td><%= f.submit "変更を保存", class:"btn btn-success" %></td>
         </tr>
-        <% end %>
       </table>
+      <% end %>
     </div>
   </div>
 </div>

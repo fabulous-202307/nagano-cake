@@ -26,7 +26,7 @@ class Customer < ApplicationRecord
   end
 
   def full_name_kana
-    last_name_kana + '' + first_name_kana
+    last_name_kana + "" + first_name_kana
   end
 
   def customer_status
