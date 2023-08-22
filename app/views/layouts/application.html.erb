@@ -9,10 +9,11 @@
     <script src="https://kit.fontawesome.com/5c06f61b2d.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
-    <header>
+    <header　class= "fixed-top">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
         <div class="container">
         <%= link_to root_path, class: "text-light" do%>
@@ -25,7 +26,7 @@
         <% if customer_signed_in? %>
         <div class="collapse navbar-collapse justify-content-center" >
           <div class="text-light">
-             <%= current_customer.last_name %>様ようこそ！
+             <%= current_customer.full_name %>様ようこそ！
           </div>
         </div>
         <% end %>
@@ -104,13 +105,18 @@
               <% end %>
             </li>
           <% end %>
-     </ul>
-    </div>
-  </div>
-</nav>
-</header>
+          </ul>
+         </div>
+     </div>
+    </nav>
+  </header>
+
+  <main>
     <%= yield %>
-     <footer>
+  </main>
+
+ <footer class="fixed-bottom">
+
     <div class="p-3 mb-2 bg-dark">
     <P></P>
     </div>
