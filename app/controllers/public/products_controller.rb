@@ -12,8 +12,11 @@ class Public::ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @cart_item = CartItem.new
   end
-  
+
   def genre_products
+    @products = Genre.find_by(params[:genre_id]).products
+    @genre = Genre.find_by(params[:genre_id])
+    @count_products = @genre.products.count
   end
 
   private
