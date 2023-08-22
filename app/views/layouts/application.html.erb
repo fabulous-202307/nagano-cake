@@ -22,6 +22,15 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
+        <% if customer_signed_in? %>
+        <div class="collapse navbar-collapse justify-content-center" >
+          <div class="text-light">
+             <%= current_customer.last_name %>様ようこそ！
+          </div>
+        </div>
+        <% end %>
+
+
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
          <% if customer_signed_in? %>
