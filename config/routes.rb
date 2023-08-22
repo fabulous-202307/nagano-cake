@@ -16,4 +16,9 @@ Rails.application.routes.draw do
 
   end
 
+
+  scope module: :public do
+    root to: 'homes#top'
+  end
+
 end
