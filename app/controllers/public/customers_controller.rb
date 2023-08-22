@@ -1,36 +1,42 @@
 class Public::CustomersController < ApplicationController
-  def show
-    @customer = Customer.find(params[:id])
+  before_action :set_customer, only: [:mypage, :edit, :update, :withdraw]
+
+  def mypage
   end
 
   def edit
-    @customer = Customer.find(params[:id])
-  end
-
-  def update
-    @customer = Customer.find(params[:id])
-    if @customer.update(customer_params)
-      flash[:notice] = "successfully"
-      redirect_to customer_path(current_customer.id)
-    else
-      render :edit
+    unless @customer == current_customer
+      redirect_to mypage_path
     end
   end
 
-  def check
+  def update
+   if current_customer.update(customer_params)
+     redirect_to mypage_path
+   else
+     redirect_to infomation_path
+   end
+  end
+
+  def confirm_withdraw
   end
 
   def withdraw
     @customer.update(is_valid: false)
     reset_session
     flash[:notice] = "退会処理を実行いたしました"
-    redirect_to root_path
+    redirect_to mypage_path
   end
 
 
 
   private
   def customer_params
-    params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :post_code, :address, :phone_number,)
+    params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :post_code, :address, :phone_number)
   end
+
+  def set_customer
+    @customer = Customer.find_by(params[:email])
+  end
+
 end
