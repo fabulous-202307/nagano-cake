@@ -7,19 +7,21 @@
 
     <div class="col-9">
       <h2>商品一覧(全x<%= @count_products%>件)</h2>
-        <div class="row row-cols-4">
-        <% @products.each do |product| %>
-          <div>
-            <%= link_to product_path(product.id) do %>
-              <%= image_tag product.get_image(160, 120) %><br>
-              <%= product.name %><br>
-              <%= number_to_currency(product.with_tax_price, unit: "¥", format: "%u %n", precision: 0 ) %>
-            <% end %>
-          </div>
-        <% end %>
+      <div class="row row-cols-4">
+      <% @products.each do |product| %>
         <div>
-      <%= paginate @products %>
+          <%= link_to product_path(product.id) do %>
+            <%= image_tag product.get_image(160, 120) %><br>
+            <%= product.name %><br>
+            <%= number_to_currency(product.with_tax_price, unit: "¥", format: "%u %n", precision: 0 ) %>
+          <% end %>
+        </div>
+      <% end %>
+      <div>
     </div>
 
+  </div>
+  <div class="row d-flex justify-content-center">
+    <%= paginate @products %>
   </div>
 </div>

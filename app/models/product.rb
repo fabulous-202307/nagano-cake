@@ -27,8 +27,4 @@ class Product < ApplicationRecord
     (price * 1.1).floor
   end
   
-  # def sale_status
-  #   if :is_available
-  # end
-
 end

@@ -3,7 +3,7 @@
   <div class="row ml-5 pl-5">
     <h5>商品新規登録</h5>
   </div>
-  <div class="my-4 d-flex justify-content-around">
+  <div class="my-4 d-flex justify-content-center">
     <%= form_with model: [:admin, @product] do |f| %>
     
       <table class="table table-borderless">
@@ -26,14 +26,14 @@
           </tr>
           <tr>
             <th><%= f.label "税抜価格" %></th>
-            <td><%= f.text_field :price, autofocus: true, placeholder: "1000" %> 円</td>
+            <td><%= f.text_field :price, autofocus: true, placeholder: "1000", class: "col-11" %> 円</td>
           </tr>
           <tr>
             <th><%= f.label "販売ステータス" %></th>
             <td>
               <%= f.radio_button :is_available, true %>
               <%= f.label :is_available, "販売中", value: true  %>
-              <%= f.radio_button :is_available, false %>
+              <%= f.radio_button :is_available, false, class: "ml-4" %>
               <%= f.label :is_available, "販売停止中", value: false  %>
             </td>
           </tr>

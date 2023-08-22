@@ -9,14 +9,14 @@
       <div class="mr-3">
         <%=image_tag @product.get_image(256, 192) %>
       </div>
-      <div class="col-6">
+      <div class="col-7">
         <h4><%= @product.name %></h4>
         <p><%= @product.detail %></p>
         <p class="mt-5">
           <span class="font-weight-bold">
             <%= number_to_currency(@product.with_tax_price, unit: "¥", format: "%u %n", precision: 0 ) %>
           </span>
-          <span>(税込)<%= @product.is_available ? "販売中" : "販売停止中" %></span>
+          <span>(税込) <%= @product.is_available ? "販売中" : "販売停止中" %></span>
         </p>
         
         <div class="col-9">
