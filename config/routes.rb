@@ -9,11 +9,19 @@ Rails.application.routes.draw do
   devise_for :admin,skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
-  
+
   namespace :admin do
-    resources :products, only: [:new, :create, :index, :show, :edit, :update, ]
+    resources :products, only: [:new, :create, :index, :show, :edit, :update ]
     resources :genres, only: [:index, :create, :edit, :update]
-  
+
+  end
+
+
+  scope module: :public do
+    root to: 'homes#top'
+    resources :products, only: [:index, :show]
+    resources :cart_items, only: [:new, :create]
+    get "/:genre", to: "products#genre_products", as: "genre_products"
   end
 
   namespace :admin do
