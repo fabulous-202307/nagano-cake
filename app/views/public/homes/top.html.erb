@@ -26,17 +26,17 @@
         </p>
     </div>
     <h3>新着商品</h3>
-    <div class="row">
+    <div class="row row-cols-4">
       <%= @products.each do |product| %>
-       <div class="col-md-3　p-1 m-1">
-         <%= link_to about_path do %>
-           <%= image_tag product.get_image(100,100) %>
+       <div>
+         <%= link_to product_path(product.id) do %>
+           <%= image_tag product.get_image(160,120) %><br>
            <%= product.name %><br>
-           <%= product.price %><br>
+           <%= number_to_currency(product.with_tax_price, unit: "¥", format: "%u %n", precision: 0 ) %><br>
          <% end %>
        </div>
       <% end %>
-       <%= link_to "全ての商品を見る >", about_path, class: "d-flex justify-content-end" %>
+       <%= link_to "全ての商品を見る >", products_path, class: "d-flex justify-content-end" %>
     </div>
    </div>
  </div>
