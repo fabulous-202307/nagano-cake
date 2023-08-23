@@ -26,10 +26,6 @@ class Public::SessionsController < Devise::SessionsController
   # end
 
   def after_sign_in_path_for(resource)
-<<<<<<< HEAD
      root_path
-=======
-     new_customer_session_path
->>>>>>> 73381f14e1f30a197b540cdda7f6ae0cd69cbf23
   end
 end

@@ -1,4 +1,5 @@
 class Public::ProductsController < ApplicationController
+# before_action :find_genre, only: [:index, :show, :genre_products]
 
   def index
     @products = Product.page(params[:page]).per(8)
@@ -13,18 +14,14 @@ class Public::ProductsController < ApplicationController
     @cart_item = CartItem.new
   end
 
-  def genre_products
-    @products = Genre.find_by(params[:genre_id]).products
-    @genre = Genre.find_by(params[:genre_id])
-    @count_products = @genre.products.count
-    @genres = Genre.all
-    @genre_paginate = @genre.products.page(params[:page]).per(8)
-  end
-
   private
 
   def product_params
     params.require(:product).permit(:genre_id, :name, :price, :detail, :is_available, :image)
   end
+  
+  # def find_genre
+  #   @genres = Genre.all
+  # end
 
 end

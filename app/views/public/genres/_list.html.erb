@@ -1,9 +1,7 @@
-<%= link_to genre_products_path(genre.id) do %>
-  <% genres.each do |genre| %>
-    <ul>
-      <li>
-        <%= genre.name %>
-      </li>
-    </ul>
-  <% end %>
+<% genres.each do |genres| %>
+  <ul>
+    <li>
+      <%= link_to genres.name, genre_products_path(:genre_id) %>
+    </li>
+  </ul>
 <% end %>

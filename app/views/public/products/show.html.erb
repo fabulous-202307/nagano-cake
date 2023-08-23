@@ -1,36 +1,30 @@
 <div class="container my-5">
   <div class="row">
-    
+
     <div class="col-3">
       <%= render "public/genres/list", genre: @genre, genres: @genres %>
     </div>
     
-    <div class="row col-9">
-      <div class="mr-3">
-        <%=image_tag @product.get_image(256, 192) %>
-      </div>
-      <div class="col-7">
-        <h4><%= @product.name %></h4>
-        <p><%= @product.detail %></p>
-        <p class="mt-5">
-          <span class="font-weight-bold">
-            <%= number_to_currency(@product.with_tax_price, unit: "¥", format: "%u %n", precision: 0 ) %>
-          </span>
-          <span>(税込) <%= @product.is_available ? "販売中" : "販売停止中" %></span>
-        </p>
-        
-        <div class="col-9">
-          <%= form_with model: @cart_item do |f| %>
-            <div class="row">
-              <%= f.select :amount, *[1..10], prompt: "個数選択" %>
-              <%= f.hidden_field :customer_id, value: current_customer.id %>
-              <%= f.hidden_field :product_id, value: @product.id %>
-              <%= f.submit "カートに入れる", class: "btn btn-success btn-sm ml-2" %>
-            </div>
-          <% end %>
-        </div>
-      </div>
+    <div class="col-4">
+      <%=image_tag @product.get_image(300, 225) %>
     </div>
-
+    <div class="col-5">
+      <h4><%= @product.name %></h4>
+      <p><%= @product.detail %></p>
+      <p class="mt-5">
+        <span class="font-weight-bold">
+          <%= number_to_currency(@product.with_tax_price, unit: "¥", format: "%u %n", precision: 0 ) %>
+        </span>
+        <span>(税込) <%= @product.is_available ? "販売中" : "販売停止中" %></span>
+      </p>
+      <%= form_with model: @cart_item do |f| %>
+        <div class="row">
+          <%= f.select :amount, *[1..10], prompt: "個数" %>
+          <%= f.hidden_field :customer_id, value: current_customer.id %>
+          <%= f.hidden_field :product_id, value: @product.id %>
+          <%= f.submit "カートに入れる", class: "btn btn-success btn-sm ml-2" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

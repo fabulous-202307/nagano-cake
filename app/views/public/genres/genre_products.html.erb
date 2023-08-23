@@ -6,6 +6,7 @@
     </div>
 
     <div class="col-9">
+      <% if @products.exists? %>
         <h2><%= @genre.name%>一覧(全x<%= @count_products%>件)</h2>
         <div class="row row-cols-4">
         <% @products.each do |product| %>
@@ -17,6 +18,9 @@
             <% end %>
           </div>
         <% end %>
+      <%else%>
+        <h4>このジャンルの商品はございません</h4>
+      <% end %>
       </div>
     </div>
   </div>
