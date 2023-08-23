@@ -1,5 +1,5 @@
 <div class="main_contents">
- <div class="row">
+ <div class="row t-10">
    <div class="col-sm-2 offset-1">
       <table class="table" border="1">
         <thead>
@@ -7,13 +7,7 @@
             <th>ジャンル検索</th>
           </tr>
         </thead>
-        <% @genres.each do |genre| %>
-         <tbody>
-           <tr>
-             <td><%= genre.name %></td>
-           </tr>
-         </tbody>
-        <% end %>
+        <%= render "public/genres/list", genre: @genre_id,genres: @genre %>
       </table>
    </div>
   <div class="container height">
@@ -41,7 +35,7 @@
          <% end %>
        </div>
       <% end %>
-      <div class="offset-7">
+      <div class="offset-11">
        <%= link_to "全ての商品を見る >", products_path, class: "d-flex justify-content-end" %>
       </div>
     </div>
