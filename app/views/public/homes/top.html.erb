@@ -16,6 +16,7 @@
         <% end %>
       </table>
    </div>
+  <div class="container height">
    <div class="col-md-8 offset-md-1">
       <div class="mt-5">
         <p>
@@ -25,7 +26,11 @@
          購入には会員登録が必要になります。
         </p>
     </div>
-    <h3>新着商品</h3>
+    <div class="row">
+      <div class="col-sm-3 offset-1">
+       <h3>新着商品</h3>
+      </div>
+    </div>
     <div class="row row-cols-4">
       <%= @products.each do |product| %>
        <div>
@@ -36,8 +41,11 @@
          <% end %>
        </div>
       <% end %>
+      <div class="offset-7">
        <%= link_to "全ての商品を見る >", products_path, class: "d-flex justify-content-end" %>
+      </div>
     </div>
    </div>
+  </div>
  </div>
 </div>
