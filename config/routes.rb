@@ -18,11 +18,11 @@ Rails.application.routes.draw do
 
   scope module: :public do
     get "customer/mypage" => "customers#mypage", as:"mypage"
-    get "customer/infomation/edit/:full_name" => "customers#edit", as:"infomation"
-    get "customer/infomatio/:full_namen" => "customers#update"
-    get "customer/confirm_withdraw" => "customuers#confirm_withdraw", as:"confirm_withdraw"
-    get "customers/withdraw/:full_name" => "customers#withdraw", as:"withdraw"
-    patch  '/customers/withdraw' => 'customers#withdraw'
+    get "customer/information" => "customers#edit", as:"information"
+    patch "customer/information/update" => "customers#update", as:"information_update"
+    get "customer/confirm_withdraw" => "customers#confirm_withdraw", as:"confirm_withdraw"
+    get "customers/withdraw" => "customers#withdraw", as:"withdraw"
+    patch "/customers/withdraw" => "customers#withdraw"
     root to: 'homes#top'
   end
 

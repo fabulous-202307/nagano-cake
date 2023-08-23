@@ -2,12 +2,11 @@ class Public::CustomersController < ApplicationController
   before_action :set_customer, only: [:mypage, :edit, :update, :withdraw]
 
   def mypage
+    @customer = current_customer
   end
 
   def edit
-    unless @customer == current_customer
-      redirect_to mypage_path
-    end
+    @customer = current_customer
   end
 
   def update
@@ -25,7 +24,7 @@ class Public::CustomersController < ApplicationController
     @customer.update(is_valid: false)
     reset_session
     flash[:notice] = "退会処理を実行いたしました"
-    redirect_to mypage_path
+    redirect_to root_path
   end
 
 
