@@ -25,10 +25,4 @@ Rails.application.routes.draw do
     get "/:genre", to: "products#genre_products", as: "genre_products"
   end
 
-  namespace :admin do
-    root to: "homes#top"
-    resources :products, only: [:new, :create, :index, :show, :edit, :update, ]
-    resources :orders, only: [:show, :update]
-  end
-
 end
