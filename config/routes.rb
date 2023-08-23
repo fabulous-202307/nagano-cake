@@ -11,11 +11,16 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    resources :products, only: [:new, :create, :index, :show, :edit, :update, ]
+    resources :products, only: [:new, :create, :index, :show, :edit, :update ]
     resources :genres, only: [:index, :create, :edit, :update]
   end
 
+
   scope module: :public do
+    root to: 'homes#top'
+    resources :products, only: [:index, :show]
+    resources :cart_items, only: [:new, :create]
+    get "/:genre", to: "products#genre_products", as: "genre_products"
     resources :addresses, only: [:index, :create, :destroy, :edit, :update]
     resources :orders, only: [:new, :create, :index, :show]do
       collection do
@@ -25,4 +30,3 @@ Rails.application.routes.draw do
     end
   end
 end
-  

@@ -12,9 +12,21 @@
   </head>
 
   <body>
+
+    <%= link_to   destroy_customer_session_path, method: :delete, class: "nav-link" do %>
+     <i class= "fas fa-sign-out-alt"></i>ログアウト
+    <% end %>
+
     <main>
       <p id="notice"><%= notice %></p>
       <%= yield %>
     </main>
+
+    <footer>
+      <div class="p-3 mb-2 bg-dark text-white">
+        <P></P>
+      </div>
+    </footer>
+    
   </body>
 </html>
