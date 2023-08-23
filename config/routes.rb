@@ -9,59 +9,20 @@ Rails.application.routes.draw do
   devise_for :admin,skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
+  namespace :admin do
+    resources :products, only: [:new, :create, :index, :show, :edit, :update ]
+    resources :genres, only: [:index, :create, :edit, :update]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  end
   scope module: :public do
-    resources :cart_items, onry: [:index, :create, :update, :destroy] do
+    root to: 'homes#top'
+    resources :products, only: [:index, :show]
+     resources :cart_items, onry: [:index, :create, :update, :destroy] do
       collection do
         delete 'destroy_all'
       end
     end
+    get "/:genre", to: "products#genre_products", as: "genre_products"
   end
 end
 
