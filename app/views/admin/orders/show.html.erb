@@ -55,15 +55,15 @@
 
     <tr>
       <th>商品合計</th>
-      <td><%= @order.billing_fee - @order.delivery_fee %></td>
+      <td>¥<%= @order.billing_fee - @order.delivery_fee %></td>
     </tr>
     <tr>
       <th>送料</th>
-      <td><%= @order.delivery_fee %></td>
+      <td>¥<%= @order.delivery_fee %></td>
     </tr>
     <tr>
       <th>請求金額合計</th>
-      <td><%= @order.billing_fee %></td>
+      <td>¥<%= @order.billing_fee %></td>
     </tr>
   </div>
 </div>
