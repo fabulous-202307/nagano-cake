@@ -12,7 +12,7 @@ import "jquery";
 import "popper.js";
 import "bootstrap";
 import "../stylesheets/application";
-import "../stylesheets/public_top.css";
+import "../stylesheets/public_top.scss";
 import "script.js"
 
 Rails.start()
