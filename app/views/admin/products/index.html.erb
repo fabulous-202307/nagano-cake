@@ -22,7 +22,7 @@
             <td>
               <%= link_to product.name, admin_product_path(product.id) %>
             </td>
-            <td><%= product.price.to_s(:delimited) %></td>
+            <td><%= number_to_currency(product.with_tax_price, unit: "¥", format: "%u %n", precision: 0 ) %></td>
             <td><%= product.genre.name %></td>
             <td class="font-weight-bold">
               <% if product.is_available %>

@@ -1,6 +1,7 @@
 class Public::CartItemsController < ApplicationController
+  before_action :authenticate_customer!
   before_action :sale_status, only: [:create]
-  
+
   def index
     @cart_items = current_customer.cart_items.all
     @total_price = @cart_items.inject(0){|sum,cart_item| sum+cart_item.subtotal}
@@ -51,4 +52,12 @@ class Public::CartItemsController < ApplicationController
       redirect_to product_path(@product.id)
     end
   end
+
+  def authenticate_customer!
+    unless current_customer
+     flash[:notice]= "ログインしてください"
+     redirect_to request.referer
+    end
+  end
+
 end
