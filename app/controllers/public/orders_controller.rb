@@ -29,7 +29,7 @@ class Public::OrdersController < ApplicationController
     @cart_items.each do |cart_item|
       @product = cart_item.product
       @subtotal = cart_item.subtotal
-      @total = @subtotal
+      @total = @subtotal + 0
     end
   end
 
