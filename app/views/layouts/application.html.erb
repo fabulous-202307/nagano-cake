@@ -59,11 +59,11 @@
             </li>
             <% elsif admin_signed_in? %>
               <li>
-              <%= link_to root_path, class: "nav-link text-light" do %>
+              <%= link_to admin_products_path, class: "nav-link text-light" do %>
                 <i style="color: white"></i>商品一覧
               <% end %>
               <li>
-              <%= link_to root_path, class: "nav-link text-light" do %>
+              <%= link_to admin_customers_path, class: "nav-link text-light" do %>
                 <i style="color: white"></i>会員一覧
               <% end %>
             </li>
@@ -78,7 +78,7 @@
               <% end %>
             </li>
             <li>
-              <%= link_to destroy_admin_session_path,class: "nav-link text-light" do %>
+              <%= link_to destroy_admin_session_path, method: :delete,class: "nav-link text-light" do %>
                 <i style="color: white"></i>ログアウト
               <% end %>
             </li>
@@ -113,7 +113,7 @@
   </header>
 
   <main>
-    <div class="#f39800">
+    <div class="red">
      <p id="notice"><%= notice %></p>
     <%= yield %>
     </div>
