@@ -11,6 +11,7 @@ class Admin::OrdersController < ApplicationController
  end
 
  def update
+   @order_user = Costomer.find(params[:id])
    @order = Order.find(params[:id])
    @order.update(order_params)
    @order_details = @order.order_details
@@ -22,7 +23,7 @@ class Admin::OrdersController < ApplicationController
      order_detail.save
      end
    end
-  redirect_to admin_order_path
+  redirect_to admin_order_path(@order_user)
  end
 
  private
