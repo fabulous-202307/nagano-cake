@@ -20,15 +20,15 @@
        <tr>
         <td class="col-4"><%= image_tag cart_item.product.get_image(30,20) %><%= cart_item.product.name %></td>
         <!-- 消費税を求めるメソッドをproduct.rbに定義 -->
-        <td class="col-2"><%= cart_item.product.with_tax_price %></td>
+        <td class="col-2"><%= number_to_currency(cart_item.product.with_tax_price, unit: "¥", format: "%u %n", precision: 0) %></td>
         <td class="col-2">
          <%= form_with(model: cart_item, url: cart_item_path(cart_item), local: true, method: :patch) do |form| %>
          <%= form.select :amount, (1..5).to_a, prompt: "個数選択" %>
-         <%= form.submit "変更", class: "btn btn-success" %>
+         <%= form.submit "変更", class: "btn btn-success ml-5" %>
          <% end %>
         </td>
         <!-- 小計を求めるメソッドをcart_item.rbに定義 -->
-        <td class="col-2"><%= cart_item.subtotal %></td>
+        <td class="col-2"><%= number_to_currency(cart_item.subtotal, unit: "¥", format: "%u %n", precision: 0) %></td>
         <td class="col-2"><%= link_to "削除する", cart_item_path(cart_item.id), method: :delete, class: "btn btn-danger" %></td>
        </tr>
         <% end %>
@@ -39,7 +39,7 @@
     <table class="table table-bordered mt-5" >
      <tr>
       <th class="col-8 table-active">合計金額</th>
-      <td class="col-4">¥<%= @total_price %></td>
+      <td class="col-4"><%= number_to_currency(@total_price, unit: "¥", format: "%u %n", precision: 0) %></td>
      </tr>
    </table>
   </div>

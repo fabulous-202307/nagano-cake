@@ -28,7 +28,7 @@
         <%= f.radio_button :address_selection, 1, class: "form-check-input" %>
         <%= f.label :"登録住所から選択", value: false %>
       </div>
-      <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display), { prompt: "選択してください" }, class: "form-control" %>
+      <%= f.collection_select :address_id, current_customer.addresses, :id, :address_display, { prompt: "選択してください" }, class: "form-control" %>
       </div>
 
     <div class="form-group mt-5">
