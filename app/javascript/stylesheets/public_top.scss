@@ -1,0 +1,38 @@
+.main_contents {
+  background-image: url(/assets/top-cake.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+/* 新着商品スライドショー*/
+
+.slider {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.slider img {
+  width: 500px;
+  height: 400px;
+}
+
+.slider .slick-slide.slick-center {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.slider li {
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.slider li p {
+  margin: 5px 0;
+}
+
+.slider li p.caption {
+  font-size: 15px;
+  font-weight: bold;
+}
