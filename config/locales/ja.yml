@@ -4,10 +4,7 @@ ja:
       payment_method:
         credit_card: "クレジットカード"
         transfer: "銀行振込"
-<<<<<<< HEAD
 
-=======
->>>>>>> a2217da48f0773abb2441c17c70de76c0d299cb8
   activerecord:
     errors:
       messages:
@@ -50,7 +47,7 @@ ja:
       default: "%Y/%m/%d"
       long: "%Y年%m月%d日(%a)"
       short: "%m/%d"
-      
+
     month_names:
     -
     - 1月
