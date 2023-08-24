@@ -5,13 +5,12 @@ class Public::ProductsController < ApplicationController
     @count_products = Product.count
     @genre = Genre.find_by(params[:genre_id])
     @genres = Genre.all
-
   end
 
   def show
     @product = Product.find(params[:id])
-    @cart_item = CartItem.new
     @genres = Genre.all
+    @cart_item = CartItem.new
   end
 
   def genre_products

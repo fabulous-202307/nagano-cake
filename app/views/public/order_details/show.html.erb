@@ -59,9 +59,9 @@
         <% @order_detail.each do |detail| %>
           <tr>
             <td><%= detail.product.name %></td>
-            <td><%= detail.with_tax_price %></td>
+            <td><%= detail.price %></td>
             <td><%= detail.amount %></td>
-            <td><%= detail.subtotal %></td>
+            <td><%= detail.subtotal_no_tax %></td>
           </tr>
         <% end %>
       </tbody>

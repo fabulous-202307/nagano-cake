@@ -1,5 +1,6 @@
 class Public::CartItemsController < ApplicationController
-
+  before_action :sale_status, only: [:create]
+  
   def index
     @cart_items = current_customer.cart_items.all
     @total_price = @cart_items.inject(0){|sum,cart_item| sum+cart_item.subtotal}
@@ -41,5 +42,13 @@ class Public::CartItemsController < ApplicationController
 
   def params_cart_item
     params.require(:cart_item).permit(:amount, :product_id, :customer_id)
+  end
+
+  def sale_status
+    @product = Product.find(params[:cart_item][:product_id])
+    unless @product.is_available
+      flash[:notice] = "ただいま販売停止中です"
+      redirect_to product_path(@product.id)
+    end
   end
 end

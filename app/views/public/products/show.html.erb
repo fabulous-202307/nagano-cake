@@ -15,7 +15,8 @@
         <span class="font-weight-bold">
           <%= number_to_currency(@product.with_tax_price, unit: "¥", format: "%u %n", precision: 0 ) %>
         </span>
-        <span>(税込) <%= @product.is_available ? "販売中" : "販売停止中" %></span>
+        <span>(税込)</span>
+        <span class="<%= @product.is_available ? "text-success" : "text-secondary" %>"><%= @product.is_available ? "販売中" : "販売停止中" %></span>
       </p>
       <%= form_with model: @cart_item do |f| %>
         <div class="row">

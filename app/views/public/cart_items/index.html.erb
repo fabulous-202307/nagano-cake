@@ -23,7 +23,7 @@
         <td class="col-2"><%= number_to_currency(cart_item.product.with_tax_price, unit: "¥", format: "%u %n", precision: 0) %></td>
         <td class="col-2">
          <%= form_with(model: cart_item, url: cart_item_path(cart_item), local: true, method: :patch) do |form| %>
-         <%= form.select :amount, (1..5).to_a, prompt: "個数選択" %>
+         <%= form.select :amount, *[1..10].to_a, prompt: "個数選択" %>
          <%= form.submit "変更", class: "btn btn-success ml-5" %>
          <% end %>
         </td>

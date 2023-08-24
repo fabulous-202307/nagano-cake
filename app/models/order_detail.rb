@@ -12,4 +12,8 @@ class OrderDetail < ApplicationRecord
     (amount * with_tax_price).floor
   end
   
+  def subtotal_no_tax
+    (price * amount)
+  end
+  
 end
