@@ -14,7 +14,7 @@
 
   <body>
     <header　class= "fixed-top">
-      <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#2f5d50;" >
+      <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#640125;" >
         <div class="container">
         <%= link_to root_path, class: "text-light" do%>
 
@@ -48,13 +48,12 @@
             </li>
             <li>
               <%= link_to  root_path, class: "nav-link text-light" do %>
-                <i style="color: white"></i>カート
+                <i class="fa-solid fa-cart-shopping" style="color: white"></i>
               <% end %>
             </li>
             <li>
               <%= link_to  destroy_customer_session_path, method: :delete, class: "nav-link text-light" do %>
-                <i style="color: white"></i>
-                ログアウト
+                <i class="fa-solid fa-right-from-bracket" style="color: white"></i>
               <% end %>
             </li>
             <% elsif admin_signed_in? %>
@@ -106,6 +105,10 @@
               <% end %>
             </li>
           <% end %>
+          <form class="d-flex mt-2">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
           </ul>
          </div>
      </div>
@@ -113,21 +116,32 @@
   </header>
 
   <main>
-    <div class="">
      <p id="notice"><%= notice %></p>
     <%= yield %>
-    </div>
   </main>
 
  <footer class="fixed-bottom">
 
-    <div class="h-10"style="background-color:#7ebea5">
-      <div class="font-small">
-        <div class="text-right text-light">
-        　☎︎ 07-6859-0527
+    <div class="h-10"style="background-color:#d6e9ca">
+       <div class="row">
+       <div class="col-9">
+           <div class="icon">
+          <i class="fa-brands fa-square-facebook"></i>
+          <i class="fa-brands fa-square-x-twitter"></i>
+          <i class="fa-brands fa-square-instagram"></i>
+          </div>
+       </div>
+        <div class="col-3">
+           <div class="tell">
+            <!--<div class="text-right text-dark">-->
+        　      ☎︎ 07-6859-0527
+            <!--</div>-->
+        </div>
+
+         </div>
+        </div>
       </div>
-      </div>
-    </div>
+
   </footer>
 
 

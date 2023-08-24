@@ -29,6 +29,10 @@ class Public::SessionsController < Devise::SessionsController
      mypage_path
   end
 
+  def after_sign_out_path_for(resource)
+     root_path
+  end
+
 
   protected
   def customer_state
