@@ -1,7 +1,8 @@
 class Public::OrdersController < ApplicationController
+  before_action :authenticate_customer!
+
   def new
     @order = Order.new
-    @address = Address.new
   end
 
   def confirm
@@ -16,14 +17,26 @@ class Public::OrdersController < ApplicationController
       @order.address = current_customer.address
       @order.name = "#{current_customer.last_name} #{current_customer.first_name}"
     elsif params[:order][:address_selection] == "1"
-      selected_address = Address.find(params[:order][:address_id])
-      @order.post_code = selected_address.post_code
-      @order.address = selected_address.address
-      @order.name = selected_address.name
+      if params[:order][:address_id].present?
+        selected_address = Address.find(params[:order][:address_id])
+        @order.post_code = selected_address.post_code
+        @order.address = selected_address.address
+        @order.name = selected_address.name
+      else
+        flash.now[:alert] = "住所を選択してください。"
+        render :new
+        return
+      end
     elsif params[:order][:address_selection] == "2"
-      @order.post_code = params[:order][:post_code]
-      @order.address = params[:order][:address]
-      @order.name = params[:order][:name]
+      if params[:order][:post_code].present?
+        @order.post_code = params[:order][:post_code]
+        @order.address = params[:order][:address]
+        @order.name = params[:order][:name]
+      else
+        flash.now[:alert] = "新しいお届け先の情報を正しく入力してください。"
+        render :new
+        return
+      end
     end
   end
 
