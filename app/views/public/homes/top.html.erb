@@ -24,23 +24,31 @@
          購入には会員登録が必要になります。
         </p>
     </div>
-    <div class="row">
-      <div class="col-sm-3 offset-1">
-       <h3>新着商品</h3>
-      </div>
-    </div>
-    <div class="row row-cols-4">
-      <%= @products.each do |product| %>
-       <div>
-         <%= link_to product_path(product.id) do %>
-           <%= image_tag product.get_image(160,120) %><br>
-           <%= product.name %><br>
-           <%= number_to_currency(product.with_tax_price, unit: "¥", format: "%u %n", precision: 0 ) %><br>
-         <% end %>
-       </div>
-      <% end %>
-      <div class="offset-11">
-       <%= link_to "全ての商品を見る >", products_path, class: "d-flex justify-content-end" %>
+    <div class="container mt-5" id="container">
+      <div class="row">
+        <div class="col">
+          <div class="mt-5">
+            <h3><strong>新着商品</strong></h3>
+            <div class="row mt-4">
+              <ul class="slider">
+                <%= @products.each do |product| %>
+                <li>
+                <%= link_to public_product_path(product) do %>
+                  <p class="caption mx-2">
+                  <%= image_tag product.get_image(160, 120) %> 
+                  </p>
+                  <% end %>
+                  <p class="caption"><%= product.name %></p>
+                  <p class="caption">¥<%= number_to_currency(product.with_tax_price, unit: "¥", format: "%u %n", precision: 0 ) %></p>
+                </li>
+                <% end %>
+              </ul>
+            </div>
+            <p class="text-center mt-5">
+              <%= link_to "全ての商品を見る", products_path %>
+            </p>
+          </div>
+        </div>    
       </div>
     </div>
    </div>
