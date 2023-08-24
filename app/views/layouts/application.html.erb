@@ -13,7 +13,7 @@
   </head>
 
   <body>
-    <header　class= "fixed-top">
+    <header class= "fixed-top">
       <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#640125;" >
         <div class="container">
         <%= link_to root_path, class: "text-light" do%>
@@ -35,7 +35,7 @@
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
-         <% if customer_signed_in? %>
+          <% if customer_signed_in? %>
             <li>
               <%= link_to mypage_path, class: "nav-link text-light" do %>
                 <i style="color: white"></i>マイページ
@@ -61,6 +61,7 @@
               <%= link_to admin_products_path, class: "nav-link text-light" do %>
                 <i style="color: white"></i>商品一覧
               <% end %>
+              </li>
               <li>
               <%= link_to admin_customers_path, class: "nav-link text-light" do %>
                 <i style="color: white"></i>会員一覧
@@ -105,12 +106,12 @@
               <% end %>
             </li>
           <% end %>
-          <form class="d-flex mt-2">
+          <form>
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </input>
           </form>
           </ul>
-         </div>
+       </div>
      </div>
     </nav>
   </header>
@@ -134,9 +135,9 @@
         <div class="col-3">
            <div class="tell">
             <!--<div class="text-right text-dark">-->
-        　      ☎︎ 07-6859-0527
+               ☎︎ 07-6859-0527
             <!--</div>-->
-        </div>
+           </div>
 
          </div>
         </div>
