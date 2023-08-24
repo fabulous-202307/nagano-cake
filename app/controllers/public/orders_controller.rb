@@ -6,9 +6,9 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @order = Order.new(order_params)
-    @cart_items = current_customer.cart_items
+    @cart_items = CartItem.where(customer_id: current_customer.id)
     @order.delivery_fee = 800
-    @total_price = @cart_items.sum(&:subtotal)
+    @total_price = @cart_items.inject(0){|sum,cart_item| sum+cart_item.subtotal}
     @total_sum = @total_price + @order.delivery_fee
 
     if params[:order][:address_selection] == "0"
@@ -25,22 +25,20 @@ class Public::OrdersController < ApplicationController
       @order.address = params[:order][:address]
       @order.name = params[:order][:name]
     end
-
-    @cart_items.each do |cart_item|
-      @product = cart_item.product
-      @subtotal = cart_item.subtotal
-      @total = @subtotal + 0
-    end
   end
 
   def create
-    @cart_items = current_customer.cart_items
+    @cart_items = current_customer.cart_items.all
     @order = current_customer.orders.new(order_params)
-    @total_price = @cart_items.sum(&:subtotal)
+    # 小計の累積を求めるメソッド
+    @total_price = @cart_items.inject(0){|sum,cart_item| sum+cart_item.subtotal}
+    # 送料
     @order.delivery_fee = 800
+    # 請求額
     @order.billing_fee = @total_price + @order.delivery_fee
 
     if @order.save
+      @cart_items = CartItem.where(customer_id: current_customer.id)
       @cart_items.each do |cart_item|
         order_detail = OrderDetail.new
         order_detail.product_id = cart_item.product_id
