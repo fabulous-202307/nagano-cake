@@ -20,7 +20,9 @@ Rails.application.routes.draw do
 
   scope module: :public do
     root to: 'homes#top'
+    get "/about" => "homes#about"
     get "/genres/:id", to: "products#genre_products", as: "genre_products"
+
     resources :products, only: [:index, :show]
     resources :cart_items, only: [:index, :create, :update, :destroy] do
       collection do
@@ -36,5 +38,4 @@ Rails.application.routes.draw do
       end
     end
   end
-
 end

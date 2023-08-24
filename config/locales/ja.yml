@@ -4,7 +4,10 @@ ja:
       payment_method:
         credit_card: "クレジットカード"
         transfer: "銀行振込"
+<<<<<<< HEAD
 
+=======
+>>>>>>> a2217da48f0773abb2441c17c70de76c0d299cb8
   activerecord:
     errors:
       messages:

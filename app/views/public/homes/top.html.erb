@@ -1,1 +1,57 @@
-top
+<div class="main_contents">
+ <div class="row t-10">
+   <div class="offset-1">
+      <table class="table" border="1">
+        <thead>
+          <tr>
+            <th class="border border-dark">ジャンル検索</th>
+          </tr>
+          <tr>
+            <td>
+               <%= render "public/genres/list", genres: @genre %>
+            </td>
+          </tr>
+        </thead>
+      </table>
+   </div>
+  <div class="container">
+   <div class="col-md-8 offset-md-1">
+      <div class="mt-5">
+        <p class="fs-1 fw-bold">
+         ようこそ、ながのCAKEへ！</br>
+         このサイトは、ケーキ販売のECサイトになります。</br>
+         会員でない方も商品の閲覧はできますが、</br>
+         購入には会員登録が必要になります。
+        </p>
+    </div>
+    <div class="container mt-5" id="container">
+      <div class="row">
+        <div class="col">
+          <div class="mt-5">
+            <h3><strong>新着商品</strong></h3>
+            <div class="row mt-4">
+              <ul class="slider">
+                <%= @products.each do |product| %>
+                <li>
+                <%= link_to public_product_path(product) do %>
+                  <p class="caption mx-2">
+                  <%= image_tag product.get_image(160, 120) %>
+                  </p>
+                  <% end %>
+                  <p class="caption"><%= product.name %></p>
+                  <p class="caption">¥<%= number_to_currency(product.with_tax_price, unit: "¥", format: "%u %n", precision: 0 ) %></p>
+                </li>
+                <% end %>
+              </ul>
+            </div>
+            <p class="text-center mt-5">
+              <%= link_to "全ての商品を見る >", products_path %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
