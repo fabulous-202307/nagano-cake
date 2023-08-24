@@ -1,5 +1,5 @@
 <table class="table">
-  <thead>
+  <thead class="thead-light">
     <tr>
       <th>商品名</th>
       <th>単価（税込）</th>
@@ -10,16 +10,18 @@
   </thead>
   <% order_details.each do |order_detail| %>
     <tbody>
-      <td><%= order_detail.product.name %></td>
-      <td><%= order_detail.price %></td>
-      <td><%= order_detail.amount %></td>
-      <td><%= order_detail.price * order_detail.amount %></td>
-      <th>
-        <%= form_with model: order_detail, url:admin_order_detail_path(order_detail) do |f| %>
-          <%= f.select :production_status, OrderDetail.production_statuses.keys %>
-          <%= f.submit "更新", class:"btn btn-success" %>
-        <% end %>
-      </th>
+      <tr>
+        <td><%= order_detail.product.name %></td>
+        <td><%= order_detail.price %></td>
+        <td><%= order_detail.amount %></td>
+        <td><%= order_detail.price * order_detail.amount %></td>
+        <td>
+          <%= form_with model: order_detail, url:admin_order_detail_path(order_detail) do |f| %>
+            <%= f.select :production_status, OrderDetail.production_statuses.keys %>
+            <%= f.submit "更新", class:"btn btn-success btn-sm" %>
+          <% end %>
+        </td>
+      </tr>
     </tbody>
   <% end %>
 </table>

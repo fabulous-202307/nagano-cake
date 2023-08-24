@@ -12,7 +12,6 @@ before_action :authenticate_admin!
  end
 
  def update
-   @order_user = Costomer.find(params[:id])
    @order = Order.find(params[:id])
    @order.update(order_params)
    @order_details = @order.order_details
@@ -24,7 +23,7 @@ before_action :authenticate_admin!
      order_detail.save
      end
    end
-  redirect_to admin_order_path(@order_user)
+  redirect_to admin_order_path(@order.customer.id)
  end
 
  private

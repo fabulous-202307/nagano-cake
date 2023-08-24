@@ -1,70 +1,74 @@
 <div class="container">
   <h4 class="margin-y">注文履歴詳細</h4>
-
-  <table>
-    <tbody>
-
-      <tr>
-        <th>購入者</th>
-        <td>
-          <%= link_to admin_customers_path(@order.customer_id) do %>
-          <%= @full_name %>
-          <% end %>
-        </td>
-      </tr>
-
-      <tr>
-        <th>注文日</th>
-        <td>
-          <%= @order.created_at.strftime("%Y/%m/%d") %>
-        </td>
-      </tr>
-
-      <tr>
-        <th>配送先</th>
-        <td>
-          <%= @order.post_code %>
-          <%= @order.address %>
-          <%= @order.name %>
-        </td>
-      </tr>
-
-      <tr>
-        <th>支払方法</th>
-        <td>
-          <%= @order.payment_method_i18n %>
-        </td>
-      </tr>
-
-      <tr>
-        <th>注文ステータス</th>
-        <td>
-          <%= form_with model: @order, url: admin_order_path do |f| %>
-            <%= f.select :status, Order.statuses.keys %>
-            <%= f.submit "更新", class:"btn btn-sm btn-success" %>
-          <% end %>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <div class="col-md-5 offset-md-1">
-    <%= render "order_table", order_detail: @order_details %>
+  <div class="row">
+    <table class="table table-borderless col-6">
+      <tbody>
+  
+        <tr>
+          <th>購入者</th>
+          <td>
+            <%= link_to admin_customers_path(@order.customer_id) do %>
+            <%= @full_name %>
+            <% end %>
+          </td>
+        </tr>
+  
+        <tr>
+          <th>注文日</th>
+          <td>
+            <%= @order.created_at.strftime("%Y/%m/%d") %>
+          </td>
+        </tr>
+  
+        <tr>
+          <th>配送先</th>
+          <td>
+            <%= @order.post_code %>
+            <%= @order.address %>
+            <%= @order.name %>
+          </td>
+        </tr>
+  
+        <tr>
+          <th>支払方法</th>
+          <td>
+            <%= @order.payment_method_i18n %>
+          </td>
+        </tr>
+  
+        <tr>
+          <th>注文ステータス</th>
+          <td>
+            <%= form_with model: @order, url: admin_order_path do |f| %>
+              <%= f.select :status, Order.statuses.keys %>
+              <%= f.submit "更新", class:"btn btn-sm btn-success" %>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-
-  <div class="">
-
-    <tr>
-      <th>商品合計</th>
-      <td>¥<%= @order.billing_fee - @order.delivery_fee %></td>
-    </tr>
-    <tr>
-      <th>送料</th>
-      <td>¥<%= @order.delivery_fee %></td>
-    </tr>
-    <tr>
-      <th>請求金額合計</th>
-      <td>¥<%= @order.billing_fee %></td>
-    </tr>
+  
+  <div class="row">
     
+    <div class="col-9 mt-5 mr-5">
+      <%= render "order_table", order_details: @order_details %>
+    </div>
+    
+    <table class="table table-borderless col-2">
+      <tr>
+        <th>商品合計</th>
+        <td>¥<%= @order.billing_fee - @order.delivery_fee %></td>
+      </tr>
+      <tr>
+        <th>送料</th>
+        <td>¥<%= @order.delivery_fee %></td>
+      </tr>
+      <tr>
+        <th>請求金額合計</th>
+        <td>¥<%= @order.billing_fee %></td>
+      </tr>
+    </table>
   </div>
+  
 </div>
