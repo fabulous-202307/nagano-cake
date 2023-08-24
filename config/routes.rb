@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     get "/about" => "homes#about"
     resources :products, only: [:index, :show]
     resources :cart_items, only: [:new, :create]
-    get "/:genre", to: "products#genre_products", as: "genre_products"
+    get "/genres/:id", to: "products#genre_products", as: "genre_products"
   end
 
 end

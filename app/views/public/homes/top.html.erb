@@ -7,7 +7,15 @@
             <th>ジャンル検索</th>
           </tr>
         </thead>
-        <%= render "public/genres/list", genre: @genre_id,genres: @genre %>
+        <% @genres.each do |genre| %>
+         <tbody>
+           <tr>
+             <td>
+               <%= link_to genre.id,
+               <%= genre.name %></td>
+           </tr>
+         </tbody>
+        <% end %>
       </table>
    </div>
   <div class="container height">
