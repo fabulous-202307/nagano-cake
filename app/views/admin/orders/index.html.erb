@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      
+
       <h4 class="col-12 text-center">注文履歴一覧</h4>
       <div class="table-responsive">
         <table class="table table-sm custom-table table-secondary">
-          <thead style="color: #FFF; font-weight: bold; background: #D5B4B4;">
+          <thead>
             <tr>
               <th>購入日時</th>
               <th>購入者</th>
@@ -16,7 +16,7 @@
           <tbody>
             <% @orders.each do |order| %>
               <tr>
-                <td><%= link_to l order.created_at, format: :long, admin_order_path(order) %></td>
+                <td><%= link_to order.created_at.strftime("%Y/%m?%d"), admin_order_path(order) %></td>
                 <td><%= order.name %></td>
                 <td><%= order.cart_items.sum(:amount) %>個</td>
                 <td><%= order.status_i18n %></td>
