@@ -11,8 +11,9 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    resources :products, only: [:new, :create, :index, :show, :edit, :update]
+    resources :products, only: [:new, :create, :index, :show, :edit, :update ]
     resources :genres, only: [:index, :create, :edit, :update]
+
   end
 
 
@@ -24,6 +25,9 @@ Rails.application.routes.draw do
     get "customers/withdraw" => "customers#withdraw", as:"withdraw"
     patch "/customers/withdraw" => "customers#withdraw"
     root to: 'homes#top'
+    resources :products, only: [:index, :show]
+    resources :cart_items, only: [:new, :create]
+    get "/genres/:id", to: "products#genre_products", as: "genre_products"
   end
 
 
