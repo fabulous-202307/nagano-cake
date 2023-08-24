@@ -1,11 +1,13 @@
 class Public::OrderDetailsController < ApplicationController
   
   def index
-    @order_details = OrderDetail.all
+    @orders = current_customer.orders
   end
 
   def show
-    @order_detail = OrderDetail.find(params[:id])
+    @order = Order.find(params[:id])
+    @order_detail = @order.order_details
+    @total = @order_detail.inject(0) { |sum, order_detail| sum + order_detail.subtotal }
   end
   
   private

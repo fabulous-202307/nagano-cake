@@ -2,9 +2,9 @@
   <div class="row">
     <h1>注文履歴一覧</h1>
   </div>
-  
+
   <div class="row">
-    <% if @order_details.exists? %>
+    <% if @orders.exists? %>
       <table class="table table-bordered">
         <thead class="thead-light">
           <tr>
@@ -17,18 +17,22 @@
           </tr>
         </thead>
         <tbody>
-          <% @order_details.each do |detail| %>
+          <% @orders.each do |order| %>
             <tr>
-              <td><%= detail.order.created_at %></td>
+              <td><%= l order.created_at, format: :long %></td>
               <td>
-                <%= detail.order.post_code %>
-                <%= detail.order.address %>
-                <%= detail.order.name %>
+                <%= order.post_code %><br>
+                <%= order.address %><br>
+                <%= order.name %>
               </td>
-              <td><%= detail.products%></td>
-              <td><%= detail.order.billing_fee %></td>
-              <td><%= detail.order.status %></td>
-              <td><%= link_to "詳細" order_detail_path(detail.id), class: "btn btn-primary btn-sm p-2" %></td>
+              <td>
+                <% order.order_details.each do |order_detail| %>
+                  <%= order_detail.product.name%><br>
+                <% end %>
+              </td>
+              <td><%= number_to_currency(order.billing_fee, unit: "¥", format: "%u %n", precision: 0 ) %></td>
+              <td><%= order.status %></td>
+              <td><%= link_to "詳細", order_detail_path(order.id), class: "btn btn-primary btn-sm p-2" %></td>
             </tr>
           <% end %>
         </tbody>
@@ -37,6 +41,4 @@
       <p>まだご注文されていません</p>
     <% end %>
   </div>
-  
-  
 </div>

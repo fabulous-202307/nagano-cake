@@ -15,8 +15,8 @@ class Public::ProductsController < ApplicationController
   end
 
   def genre_products
-    @products = Genre.find_by(params[:genre_id]).products
-    @genre = Genre.find_by(params[:genre_id])
+    @products = Genre.find(params[:id]).products
+    @genre = Genre.find(params[:id])
     @count_products = @genre.products.count
     @genres = Genre.all
     @genre_paginate = @genre.products.page(params[:page]).per(8)
