@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h4 class="my-5"><%= @customer.full_name %>さんの会員情報</h4>
+      <%= form_with model: @customer, url: admin_customer_path(@customer) do |f| %>
+      <table class="table table-borderless">
+        <tr>
+          <td>会員ID</td>
+          <td><%= @customer.id %></td>
+        </tr>
+
+        <tr>
+          <td class="col-2">氏名</td>
+          <td>
+          <%= f.text_field :last_name, class: "col-2 mr-5" %>
+          <%= f.text_field :first_name, class: "col-2" %>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="col-2">フリガナ</td>
+          <td>
+          <%= f.text_field :last_name_kana, class: "col-2 mr-5" %>
+          <%= f.text_field :first_name_kana, class: "col-2" %>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="col-2">郵便番号</td>
+          <td><%= f.text_field :post_code, class: "col-2" %></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td class="col-2">住所</td>
+          <td><%= f.text_field :address, class: "col-6" %></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td class="col-2">電話番号</td>
+          <td><%= f.text_field :phone_number, class: "col-2" %></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td class="col-2">メールアドレス</td>
+          <td><%= f.text_field :email, class: "col-5" %></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td class="col-2">会員ステータス</td>
+          <td>
+            <%= f.radio_button :is_valid, :true %>
+            <%= f.label :is_valid, "有効", { value: :true } %>
+
+            <%= f.radio_button :is_valid, :false %>
+            <%= f.label :is_valid, "退会", { value: :false } %>
+          </td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td><%= f.submit "変更を保存", class:"btn btn-success" %></td>
+        </tr>
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>

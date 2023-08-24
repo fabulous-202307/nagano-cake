@@ -1,9 +1,15 @@
 # frozen_string_literal: true
 
 Kaminari.configure do |config|
+<<<<<<< HEAD
   config.default_per_page = 10
   # config.max_per_page = nil
   config.window = 2
+=======
+  # config.default_per_page = 25
+  # config.max_per_page = nil
+  # config.window = 4
+>>>>>>> 6f4f4ddb3df8cf9091273cf0d9677533e76bc675
   # config.outer_window = 0
   # config.left = 0
   # config.right = 0
@@ -11,4 +17,8 @@ Kaminari.configure do |config|
   # config.param_name = :page
   # config.max_pages = nil
   # config.params_on_first_page = false
+<<<<<<< HEAD
+=======
+  config.default_per_page = 10
+>>>>>>> 6f4f4ddb3df8cf9091273cf0d9677533e76bc675
 end
