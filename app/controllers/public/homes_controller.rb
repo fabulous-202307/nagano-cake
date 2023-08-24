@@ -4,6 +4,5 @@ class Public::HomesController < ApplicationController
     @products = Product.order("id DESC").limit(4)
     @genres = Genre.order("id DESC").limit(8)
     @genre = Genre.all
-    @genre_id = Genre.find(params[:id])
   end
 end
