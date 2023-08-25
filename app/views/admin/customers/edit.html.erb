@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col">
       <h4 class="my-5"><%= @customer.full_name %>さんの会員情報</h4>
-      <%= form_with model: @customer, url: admin_customer_path(@customer) do |f| %>
+      <%= form_with model: [:admin, @customer] do |f| %>
       <table class="table table-borderless">
         <tr>
           <td>会員ID</td>

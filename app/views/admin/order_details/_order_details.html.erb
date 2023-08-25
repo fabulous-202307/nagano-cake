@@ -1,0 +1,4 @@
+<%= form_with model: [order, order_details], url: admin_order_detail_path, local: true do |f| %>
+  <%= f.select :production_status,OrderDetail.production_statuses.keys.to_a %>
+  <%= f.submit "更新" %>
+<% end %>

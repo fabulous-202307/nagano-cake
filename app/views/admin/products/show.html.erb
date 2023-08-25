@@ -1,16 +1,16 @@
 <div class="container mt-5">
-  
+
   <div class="row ml-5 pl-5">
     <h5>商品詳細</h5>
   </div>
-  
-  
+
+
   <div class="row p-5">
-    <div class="col-lg-3 mr-3">
-      <%=image_tag @product.get_image(300, 300) %>
+    <div class="col-5">
+      <%=image_tag @product.get_image(360, 270) %>
     </div>
-    
-    <div class="col-lg-6 offset-lg-1">
+
+    <div class="col-7">
       <table class="table table-borderless">
         <tr>
           <th>商品名</th>
@@ -25,8 +25,8 @@
           <td><%= @product.genre.name %></td>
         </tr>
         <tr>
-          <th>税込価格<br>（税抜価格）</th>
-          <td><%= @product.with_tax_price.to_s(:delimited) %> (<%= @product.price.to_s(:delimited) %>) 円</td>
+          <th>税込価格<br>(税抜価格)</th>
+          <td class="font-weight-bold"><%= number_to_currency(@product.with_tax_price, unit: "¥", format: "%u %n", precision: 0 ) %><br> (<%= number_to_currency(@product.price, unit: "¥", format: "%u %n", precision: 0 ) %>)</td>
         </tr>
         <tr>
           <th>販売ステータス</th>
@@ -44,7 +44,7 @@
       </div>
     </div>
   </div>
-  
-  
+
+
 
 </div>

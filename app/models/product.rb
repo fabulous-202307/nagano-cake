@@ -22,9 +22,9 @@ class Product < ApplicationRecord
     image.variant(resize_to_fill: [width, height]).processed
   end
 
-  # 税込価格
+  # 消費税を求めるメソッド
   def with_tax_price
     (price * 1.1).floor
   end
-  
+
 end
