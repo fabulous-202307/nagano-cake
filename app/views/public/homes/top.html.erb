@@ -1,18 +1,7 @@
 <div class="main_contents">
  <div class="row t-10">
    <div class="offset-1">
-      <table class="table" border="1">
-        <thead>
-          <tr>
-            <th class="border border-dark">ジャンル検索</th>
-          </tr>
-          <tr>
-            <td>
-               <%= render "public/genres/list", genres: @genre %>
-            </td>
-          </tr>
-        </thead>
-      </table>
+     <%= render "public/genres/list", genres: @genre %>
    </div>
   <div class="container">
    <div class="col-md-8 offset-md-1">
@@ -23,7 +12,8 @@
          会員でない方も商品の閲覧はできますが、</br>
          購入には会員登録が必要になります。
         </p>
-    </div>
+      </div>
+    
     <div class="container mt-5" id="container">
       <div class="row">
         <div class="col">
@@ -31,15 +21,7 @@
             <h3><strong>新着商品</strong></h3>
             <div class="row mt-4">
               <div class="row slider">
-                <% @products.each do |product| %>
-                  <div class="caption mx-2">
-                    <%= link_to product_path(product.id) do %>
-                      <%= image_tag product.get_image(160, 120) %>
-                    <% end %>
-                  </div>
-                  <p class="caption"><%= product.name %></p>
-                  <p class="caption"><%= number_to_currency(product.with_tax_price, unit: "¥", format: "%u %n", precision: 0 ) %></p>
-                <% end %>
+                <%= render "public/products/index", products: @products %>
               </div>
             </div>
             <p class="text-center mt-5">
