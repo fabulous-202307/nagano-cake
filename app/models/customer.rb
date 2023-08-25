@@ -21,12 +21,13 @@ class Customer < ApplicationRecord
   # 郵便番号（ハイフンなし7桁）
   validates :post_code, format: { with: /\A\d{7}\z/ }
 
+
   def full_name
-    last_name + "" + first_name
+     self.last_name + " " + self.first_name
   end
 
   def full_name_kana
-    last_name_kana + "" + first_name_kana
+    self.last_name_kana + " " + self.first_name_kana
   end
 
   def customer_status
@@ -35,7 +36,9 @@ class Customer < ApplicationRecord
     else
       "退会"
     end
+    self.last_name + " " + self.first_name
   end
+
 
   def active_for_authentication?
     super && (is_valid == true)

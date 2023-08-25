@@ -21,6 +21,14 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get "/about" => "homes#about"
+
+    get "customer/mypage" => "customers#mypage", as:"mypage"
+    get "customer/information" => "customers#edit", as:"information"
+    patch "customer/information/update" => "customers#update", as:"information_update"
+    get "customer/confirm_withdraw" => "customers#confirm_withdraw", as:"confirm_withdraw"
+    get "customers/withdraw" => "customers#withdraw", as:"withdraw"
+    patch "/customers/withdraw" => "customers#withdraw"
+
     get "/genres/:id", to: "products#genre_products", as: "genre_products"
 
     resources :products, only: [:index, :show]
