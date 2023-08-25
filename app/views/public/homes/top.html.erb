@@ -30,19 +30,17 @@
           <div class="mt-5">
             <h3><strong>新着商品</strong></h3>
             <div class="row mt-4">
-              <ul class="slider">
-                <%= @products.each do |product| %>
-                <li>
-                <%= link_to product_path(product.id) do %>
-                  <p class="caption mx-2">
-                  <%= image_tag product.get_image(160, 120) %>
-                  </p>
-                  <% end %>
+              <div class="row slider">
+                <% @products.each do |product| %>
+                  <div class="caption mx-2">
+                    <%= link_to product_path(product.id) do %>
+                      <%= image_tag product.get_image(160, 120) %>
+                    <% end %>
+                  </div>
                   <p class="caption"><%= product.name %></p>
-                  <p class="caption">¥<%= number_to_currency(product.with_tax_price, unit: "¥", format: "%u %n", precision: 0 ) %></p>
-                </li>
+                  <p class="caption"><%= number_to_currency(product.with_tax_price, unit: "¥", format: "%u %n", precision: 0 ) %></p>
                 <% end %>
-              </ul>
+              </div>
             </div>
             <p class="text-center mt-5">
               <%= link_to "全ての商品を見る >", products_path %>
@@ -51,7 +49,5 @@
         </div>
       </div>
     </div>
-   </div>
   </div>
- </div>
 </div>
