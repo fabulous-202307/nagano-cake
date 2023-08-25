@@ -1,0 +1,7 @@
+<% genres.each do |genre| %>
+  <ul>
+    <%= link_to genre_products_path(genre.id) do %>
+      <li><%= genre.name%></li>
+    <% end %>
+  </ul>
+<% end %>
