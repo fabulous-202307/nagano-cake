@@ -1,6 +1,6 @@
 class Public::CartItemsController < ApplicationController
-
   before_action :authenticate_customer!
+  before_action :sale_status, only: [:create]
 
   def index
     @cart_items = current_customer.cart_items.all
@@ -45,10 +45,19 @@ class Public::CartItemsController < ApplicationController
     params.require(:cart_item).permit(:amount, :product_id, :customer_id)
   end
 
-  def authenticate_customer!
-    unless current_customer
-      flash[:notice]= "ログインしてください"
-      redirect_to request.referer
+  def sale_status
+    @product = Product.find(params[:cart_item][:product_id])
+    unless @product.is_available
+      flash[:notice] = "ただいま販売停止中です"
+      redirect_to product_path(@product.id)
     end
   end
+
+  def authenticate_customer!
+    unless current_customer
+     flash[:notice]= "ログインしてください"
+     redirect_to request.referer
+    end
+  end
+
 end

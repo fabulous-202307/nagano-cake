@@ -25,6 +25,6 @@ class Admin::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
     def after_sign_in_path_for(resource)
-     new_customer_session_path
+     admin_orders_path
     end
 end

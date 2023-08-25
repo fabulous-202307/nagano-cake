@@ -11,22 +11,38 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    resources :products, only: [:new, :create, :index, :show, :edit, :update]
+    resources :customers, only: [ :index, :create, :show, :edit, :update]
+    resources :products, only: [:new, :create, :index, :show, :edit, :update,]
+    resources :orders, only: [:index, :show, :update]
+    resources :order_details, only: [:update]
     resources :genres, only: [:index, :create, :edit, :update]
   end
 
   scope module: :public do
     root to: 'homes#top'
+    get "/about" => "homes#about"
+
+    get "customer/mypage" => "customers#mypage", as:"mypage"
+    get "customer/information" => "customers#edit", as:"information"
+    patch "customer/information/update" => "customers#update", as:"information_update"
+    get "customer/confirm_withdraw" => "customers#confirm_withdraw", as:"confirm_withdraw"
+    get "customers/withdraw" => "customers#withdraw", as:"withdraw"
+    patch "/customers/withdraw" => "customers#withdraw"
+
+    get "/genres/:id", to: "products#genre_products", as: "genre_products"
+  
     resources :products, only: [:index, :show]
     resources :cart_items, only: [:index, :create, :update, :destroy] do
       collection do
         delete 'destroy_all'
       end
     end
-    get "/:genre", to: "products#genre_products", as: "genre_products"
+    resources :order_details , only: [:index, :show]
     resources :addresses, only: [:index, :create, :destroy, :edit, :update]
     resources :orders, only: [:new, :create] do
+      
       collection do
+        get "confirm"
         post "confirm"
         get "complete"
       end

@@ -10,7 +10,7 @@
         <tbody>
           <tr>
             <th><%= f.label "商品画像" %></th>
-            <td><%= f.file_field :image, accept: "image/*" %><br>
+            <td><%= image_tag @product.get_image(100, 75), class: "mr-2" %><%= f.file_field :image, accept: "image/*" %><br>
               <% if f.object.image.attached? %>
                   保存されているファイル： <%= f.object.image.filename %>
               <% end %>
