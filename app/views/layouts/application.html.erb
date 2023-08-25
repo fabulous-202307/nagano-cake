@@ -16,7 +16,7 @@
       <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#640125;" >
         <div class="container">
 
-          <%= link_to root_path, class: "text-light" do%>
+          <%= link_to root_path do %>
             <img class="navbar-brand"><%= image_tag("logo.png", width: "20%" ) %>
           <% end %>
 
@@ -46,7 +46,7 @@
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to  root_path, class: "nav-link text-light" do %>
+                  <%= link_to  cart_items_path, class: "nav-link text-light" do %>
                     <i class="fa-solid fa-cart-shopping" style="color: white"></i>
                   <% end %>
                 </li>
@@ -68,8 +68,8 @@
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to root_path, class: "nav-link text-light" do %>
-                    <i style="color: white"></i>注文一覧
+                  <%= link_to admin_orders_path, class: "nav-link text-light" do %>
+                    <i style="color: white"></i>注文履歴一覧
                   <% end %>
                 </li>
                 <li>
@@ -85,7 +85,7 @@
 
               <% else %>
                 <li>
-                  <%= link_to root_path, class: "nav-link text-light" do %>
+                  <%= link_to about_path, class: "nav-link text-light" do %>
                     <i style="color: white"></i>About
                   <% end %>
                 </li>
@@ -117,29 +117,26 @@
     </header>
 
     <main>
-       <p id="notice"><%= notice %></p>
+      <p id="notice"><%= notice %></p>
       <%= yield %>
     </main>
 
-    <footer class="fixed-bottom">
+    <footer class="h-10"style="background-color:#d6e9ca">
+      <div class="row d-flex justify-content-between">
+        <div class="icon mx-5">
+          <%= link_to new_admin_session_path, class: "text-reset btn text-decoration-none" do%>
+            <i class="fa-solid fa-user-shield"></i>
+          <% end %>
+          <i class="fa-brands fa-square-facebook btn"></i>
+          <i class="fa-brands fa-square-x-twitter btn"></i>
+          <i class="fa-brands fa-square-instagram btn"></i>
+        </div>
 
-      <div class="h-10"style="background-color:#d6e9ca">
-        <div class="row">
-          <div class="col-9">
-            <div class="icon">
-              <i class="fa-brands fa-square-facebook"></i>
-              <i class="fa-brands fa-square-x-twitter"></i>
-              <i class="fa-brands fa-square-instagram"></i>
-            </div>
-          </div>
-
-          <div class="col-3">
-            <div class="tell">
-               ☎︎ 07-6859-0527
-            </div>
-          </div>
+        <div class="tell mx-5">
+           ☎︎ 07-6859-0527
         </div>
       </div>
+
 
     </footer>
 

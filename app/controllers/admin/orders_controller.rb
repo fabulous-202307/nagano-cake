@@ -14,7 +14,6 @@ before_action :authenticate_admin!
  def update
    @order = Order.find(params[:id])
    @order.update(order_params)
-   @order_details = @order.order_details
 
    #もし注文のステータスが「入金確認」の場合、以下の処理を行う
    if @order.status == "入金確認"
@@ -23,7 +22,7 @@ before_action :authenticate_admin!
      order_detail.save
      end
    end
-  redirect_to admin_order_path(@order.customer.id)
+  redirect_to admin_order_path(@order.customer)
  end
 
  private

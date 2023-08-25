@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Public::SessionsController < Devise::SessionsController
-   before_action :customer_state, only: [:create]
+   before_action :customer_state, only: [:create, :customer_state]
 
   # GET /resource/sign_in
   # def new
@@ -26,13 +26,12 @@ class Public::SessionsController < Devise::SessionsController
   # end
 
   def after_sign_in_path_for(resource)
-     mypage_path
+     root_path
   end
 
   def after_sign_out_path_for(resource)
      root_path
   end
-
 
   protected
   def customer_state

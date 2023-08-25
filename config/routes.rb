@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     patch "/customers/withdraw" => "customers#withdraw"
 
     get "/genres/:id", to: "products#genre_products", as: "genre_products"
-
+  
     resources :products, only: [:index, :show]
     resources :cart_items, only: [:index, :create, :update, :destroy] do
       collection do
@@ -40,7 +40,9 @@ Rails.application.routes.draw do
     resources :order_details , only: [:index, :show]
     resources :addresses, only: [:index, :create, :destroy, :edit, :update]
     resources :orders, only: [:new, :create] do
+      
       collection do
+        get "confirm"
         post "confirm"
         get "complete"
       end
