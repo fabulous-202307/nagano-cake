@@ -21,7 +21,6 @@ class Customer < ApplicationRecord
   # 郵便番号（ハイフンなし7桁）
   validates :post_code, format: { with: /\A\d{7}\z/ }
 
-
   def full_name
      self.last_name + " " + self.first_name
   end
@@ -38,7 +37,6 @@ class Customer < ApplicationRecord
     end
     self.last_name + " " + self.first_name
   end
-
 
   def active_for_authentication?
     super && (is_valid == true)
