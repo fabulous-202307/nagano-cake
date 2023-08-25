@@ -44,4 +44,11 @@ class Public::CartItemsController < ApplicationController
   def params_cart_item
     params.require(:cart_item).permit(:amount, :product_id, :customer_id)
   end
+
+  def authenticate_customer!
+    unless current_customer
+      flash[:notice]= "ログインしてください"
+      redirect_to request.referer
+    end
+  end
 end
