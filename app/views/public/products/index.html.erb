@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container my-5">
   <div class="row">
 
     <div class="col-3 mt-5">
@@ -7,9 +7,9 @@
 
     <div class="col-9">
       <h3 class="mb-3 font-weight-bold">
-        商品一覧 (全 <%= count_products%>件)
+        商品一覧 (全 <%= @count_products%>件)
       </h3>
-      <%= render "index", count_products: @count_products, products: @products %>
+      <%= render "index", products: @products %>
     </div>
 
   </div>

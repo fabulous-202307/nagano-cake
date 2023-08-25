@@ -33,7 +33,7 @@
               <ul class="slider">
                 <%= @products.each do |product| %>
                 <li>
-                <%= link_to public_product_path(product) do %>
+                <%= link_to product_path(product.id) do %>
                   <p class="caption mx-2">
                   <%= image_tag product.get_image(160, 120) %>
                   </p>
