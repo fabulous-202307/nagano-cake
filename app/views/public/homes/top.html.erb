@@ -27,8 +27,9 @@
       <div class="">
         <div class="col mt-5">
             <h3 class="text-center"><strong>新着商品</strong></h3>
-            <div class="mt-4">
-              <ul class="slider">
+            <div class="swiper mt-4">
+             <div class="swiper-wrapper">
+              <ul class="swiper-slide slider">
                 <% @products.each do |product| %>
                 <li>
                 <%= link_to product_path(product) do %>
@@ -48,6 +49,10 @@
                 </li>
                 <% end %>
               </ul>
+             </div>
+              <div class="swiper-pagination"></div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
             </div>
             <div class="text-center d-grid gap-2 col-8 mx-auto">
              <button type="button" class="btn btn-outline-primary w-50 mt-5 mb-5">

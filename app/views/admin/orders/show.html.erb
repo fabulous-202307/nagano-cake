@@ -23,8 +23,8 @@
         <tr>
           <th>配送先</th>
           <td>
-            <%= @order.post_code %>
-            <%= @order.address %>
+            〒<%= @order.post_code %><br>
+            <%= @order.address %><br>
             <%= @order.name %>
           </td>
         </tr>
@@ -41,7 +41,7 @@
           <td>
             <%= form_with model: @order, url: admin_order_path do |f| %>
               <%= f.select :status, Order.statuses.keys %>
-              <%= f.submit "更新", class:"btn btn-sm btn-success" %>
+              <%= f.submit "更新", class:"btn btn-sm btn-success mb-1 mx-2" %>
             <% end %>
           </td>
         </tr>
@@ -53,6 +53,7 @@
 
     <div class="col-9 mt-5 mr-5">
       <%= render "order_table", order_details: @order_details %>
+      <%= link_to "注文履歴一覧へ戻る", admin_orders_path, class:"btn btn-primary mt-5" %>
     </div>
 
     <table class="table table-borderless col-2">
