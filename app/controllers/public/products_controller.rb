@@ -3,7 +3,6 @@ class Public::ProductsController < ApplicationController
   def index
     @products = Product.page(params[:page]).per(8)
     @count_products = Product.count
-    @genre = Genre.find(params[:genre_id])
     @genres = Genre.all
   end
 

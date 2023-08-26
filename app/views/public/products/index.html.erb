@@ -1,23 +1,15 @@
-<div class="container">
+<div class="container my-5">
   <div class="row">
 
-    <div class="col-3">
+    <div class="col-3 mt-5">
       <%= render "public/genres/list", genre: @genre, genres: @genres %>
     </div>
 
     <div class="col-9">
-      <h2>商品一覧(全x<%= @count_products%>件)</h2>
-      <div class="row row-cols-4">
-      <% @products.each do |product| %>
-        <div>
-          <%= link_to product_path(product.id) do %>
-            <%= image_tag product.get_image(160, 120) %><br>
-            <%= product.name %><br>
-            <%= number_to_currency(product.with_tax_price, unit: "¥", format: "%u %n", precision: 0 ) %>
-          <% end %>
-        </div>
-      <% end %>
-      <div>
+      <h3 class="mb-3 font-weight-bold">
+        商品一覧 (全 <%= @count_products%>件)
+      </h3>
+      <%= render "index", products: @products %>
     </div>
 
   </div>
