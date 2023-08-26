@@ -6,31 +6,30 @@
     </div>
   </div>
 
-<div class="row">
-  <div class="col-md- offset-md-2 mb-5" >
-    会員の方はこちらからログイン
+  <div class="row">
+    <div class="col-md-5 offset-md-2 mb-5 mt-3" >
+      会員の方はこちらからログイン
+    </div>
   </div>
-</div>
 
 
   <%= form_with model: @customer, url: customer_session_path do |f| %>
-     <div class="row mb-3">
-        <%= f.label :email, "メールアドレス", class:"col-2 offset-3" %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <%= render "layouts/errors", obj: @customer %>
+    <div class="row mb-3">
+      <%= f.label :email, "メールアドレス", class:"col-2 offset-3" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>
 
-     <div class="row mb-3">
-        <%= f.label :password, "パスワード", class:"col-2 offset-3" %>
-        <%= f.password_field :password, autocomplete: "current-password" %>
+    <div class="row mb-3">
+      <%= f.label :password, "パスワード", class:"col-2 offset-3" %>
+      <%= f.password_field :password, autocomplete: "current-password" %>
     </div>
-    <div class="d-grid gap-2 col-6 mx-auto " >
 
-        <div class="actions">
-          <%= f.submit "ログイン", class: "btn btn-outline-primary" %>
-       </div>
-  <% end %>
-      <div class= "mb-3">
-         <%= render "public/shared/links" %>
+    <div class="row my-4 actions d-flex justify-content-center" >
+      <div class="mx-5">
+        <%= render "public/shared/links" %>
       </div>
+      <%= f.submit "ログイン", class: "btn btn-sm btn-outline-primary mx-5" %>
     </div>
+  <% end %>
 </div>
