@@ -15,7 +15,7 @@ before_action :authenticate_admin!
    @order_customer = Customer.find(params[:id])
    @order = Order.find(params[:id])
    @order.update(order_params)
-
+   @order_details = @order.order_details
    #もし注文のステータスが「入金確認」の場合、以下の処理を行う
    if @order.status == "入金確認"
      @order_details.each do |order_detail|
