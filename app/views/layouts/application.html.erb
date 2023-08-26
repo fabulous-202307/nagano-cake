@@ -115,12 +115,14 @@
 
     <main>
       <div id="notice"><%= notice %></div>
+      <div id="alert"><%= alert %></div>
+
       <%= yield %>
     </main>
 
 
-　　<footer class="fixed-bottom">
-　　  <div class="row d-flex justify-content-between" style="background-color:#d6e9ca">
+    <footer class="fixed-bottom">
+      <div class="row d-flex justify-content-between" style="background-color:#d6e9ca">
         <div class="icon mx-5">
           <%= link_to new_admin_session_path, class: "text-reset btn text-decoration-none" do%>
             <i class="fa-solid fa-user-shield"></i>
