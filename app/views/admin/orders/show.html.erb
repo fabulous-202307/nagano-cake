@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container mt-5">
   <h4 class="margin-y">注文履歴詳細</h4>
   <div class="row">
     <table class="table table-borderless col-6">
       <tbody>
-  
+
         <tr>
           <th>購入者</th>
           <td>
@@ -12,14 +12,14 @@
             <% end %>
           </td>
         </tr>
-  
+
         <tr>
           <th>注文日</th>
           <td>
             <%= @order.created_at.strftime("%Y/%m/%d") %>
           </td>
         </tr>
-  
+
         <tr>
           <th>配送先</th>
           <td>
@@ -28,14 +28,14 @@
             <%= @order.name %>
           </td>
         </tr>
-  
+
         <tr>
           <th>支払方法</th>
           <td>
             <%= @order.payment_method_i18n %>
           </td>
         </tr>
-  
+
         <tr>
           <th>注文ステータス</th>
           <td>
@@ -48,13 +48,13 @@
       </tbody>
     </table>
   </div>
-  
+
   <div class="row">
-    
+
     <div class="col-9 mt-5 mr-5">
       <%= render "order_table", order_details: @order_details %>
     </div>
-    
+
     <table class="table table-borderless col-2">
       <tr>
         <th>商品合計</th>

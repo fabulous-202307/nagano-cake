@@ -1,5 +1,5 @@
 <div class="container p-5">
-  
+
   <div class="row ml-5 pl-5 d-flex justify-content-between">
     <h5>商品一覧</h5>
     <%= link_to new_admin_product_path, class: "btn btn-lg rounded-circle" do %>
@@ -39,9 +39,9 @@
       </tbody>
     </table>
   </div>
-  
+
   <div class="row d-flex justify-content-center">
     <%= paginate @products %>
   </div>
-  
+
 </div>

@@ -2,7 +2,12 @@
   background-image: url(/assets/back.webp);
   background-size: cover;
   // background-position: center;
-  opacity: 50%;
+}
+
+/*背景画像の透過用CSS*/
+.bkRGBA {
+  height: 100%;
+  background: rgba(255,255,255,0.5);
 }
 
 /* 新着商品スライドショー*/
@@ -13,13 +18,13 @@
 }
 
 .slider img {
-  width: 500px;
-  height: 400px;
+  width: 300px;
+  height: 200px;
 }
 
 .slider .slick-slide.slick-center {
   transform: scale(1);
-  opacity: 1;
+  opacity: 3;
 }
 
 .slider li {
@@ -27,6 +32,7 @@
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   text-align: center;
+  background-color: #FFF;
 }
 
 .slider li p {
