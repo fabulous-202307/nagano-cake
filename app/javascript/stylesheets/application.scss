@@ -18,9 +18,24 @@ th {
   background-color: #f8fbf8;
 }
 
-// h1, h2, h3, h3, h4 {
-//   margin: 20px 0;
-// }
+td {
+  word-break: break-all;
+}
+
+a {
+  color: #640125;
+}
+
+a:hover {
+  background-color: #e1cfe6;
+  color: #640125;
+}
+
+header a:hover {
+  background-color: #4d021d;
+}
+
+
 
 
 .btn-outline-secondary {

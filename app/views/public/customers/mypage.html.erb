@@ -1,16 +1,13 @@
-<div class="container">
-  <div class="row">
-    <div class="mb-2 mt-3">
-    <span class="font-weight-bold">登録情報</span>
-    <%= link_to "編集する", information_path, class:"btn btn-sm btn-outline-success" %>
+<div class="container mt-5">
+  
+  <div class="row mb-4 ml-4">
+    <h5 class="font-weight-bold">登録情報</h5>
+    <%= link_to "編集する", information_path, class:"btn btn-sm btn-outline-success ml-3" %>
   </div>
-  </div>
-
-  <div class="row col-8">
+  <div class="offset-lg-2 offset-md-1 col-lg-7 col-md-11 col-sm-9">
     <table class="table table-bordered mx-3" >
-      <col span="1" bgcolor= "#f8fbf8" >
       <tbody>
-          <th width="30%">氏名</th>
+          <th>氏名</th>
           <td><%= @customer.full_name %></td>
         </tr>
         <tr>
@@ -23,7 +20,7 @@
         </tr>
         <tr>
           <th>住所</th>
-          <td><%= @customer.address%></td>
+          <td class="details" style="width: 69%;"><%= @customer.address%></td>
         </tr>
         <tr>
           <th>電話番号</th>
@@ -36,14 +33,15 @@
       </tbody>
     </table>
   </div>
-
-  <div class="mb-2">
-    <span class="font-weight-bold">配送先</span>
-    <%= link_to "一覧を見る ", addresses_path, class:"btn btn-sm btn-outline-secondary" %>
+  
+  <div class="row d-flex justify-content-center">
+    <div class="row mb-2 mr-3">
+      <h6 class="font-weight-bold">配送先</h6>
+      <%= link_to "一覧を見る ", addresses_path, class:"btn btn-sm btn-outline-secondary mx-2" %>
+    </div>
+    <div class="row mb-2 mx-2">
+      <h6 class="font-weight-bold">注文履歴</h6>
+      <%= link_to "一覧を見る ", order_details_path, class:"btn btn-sm btn-outline-secondary ml-3" %>
+    </div>
   </div>
-  <div class="mb-2">
-    <span class="font-weight-bold">注文履歴</span>
-    <%= link_to "一覧を見る ", order_details_path, class:"btn btn-sm btn-outline-secondary" %>
-  </div>
-
 </div>
