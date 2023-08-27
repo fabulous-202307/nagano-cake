@@ -1,15 +1,17 @@
-<div class="container p-5">
-
-  <div class="row ml-5 pl-5 d-flex justify-content-between">
-    <h5>商品一覧</h5>
-    <%= link_to new_admin_product_path, class: "btn btn-lg rounded-circle" do %>
-      <i class="fa-solid fa-circle-plus"></i>
+<div class="container mt-5">
+  
+  <div class="row d-flex justify-content-between">
+    <h3 class="font-weight-bold ml-2">商品一覧</h3>
+    <%= link_to new_admin_product_path do %>
+      <%= button_tag type: "submit", class: "btn btn-outline-secondary btn-lg ml-3" do %>
+        <i class="fa-solid fa-square-plus fa-xl" style="color: #640125;"></i>
+      <% end %>
     <% end %>
   </div>
 
   <div class="row mt-3">
-    <table class="table">
-      <thead class="thead-light">
+    <table class="table table-hover table-sm">
+      <thead>
         <tr>
           <th>商品ID</th>
           <th>商品名</th>
@@ -22,8 +24,11 @@
         <% @products.each do |product| %>
           <tr>
             <td><%= product.id %></td>
-            <td>
-              <%= link_to product.name, admin_product_path(product.id) %>
+            <td class="row">
+              <%= link_to admin_product_path(product.id) do %>
+                <%= image_tag product.get_image(40, 27), class: "mr-2" %>
+                <%= product.name %>
+              <% end %>
             </td>
             <td><%= number_to_currency(product.with_tax_price, unit: "¥", format: "%u %n", precision: 0 ) %></td>
             <td><%= product.genre.name %></td>
@@ -31,7 +36,7 @@
               <% if product.is_available %>
                 <p class="text-success">販売中</p>
               <% else %>
-                <p class="text-secondary">販売停止中</p>
+                <p class="text-danger">販売停止中</p>
               <% end %>
             </td>
           </tr>

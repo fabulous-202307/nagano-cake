@@ -1,71 +1,56 @@
-<div class="container">
+<div class="container mt-5">
+  <h4 class="font-weight-bold mb-5"><%= @customer.full_name %>さんの会員情報</h4>
   <div class="row">
-    <div class="col">
-      <h4 class="my-5"><%= @customer.full_name %>さんの会員情報</h4>
-      <%= form_with model: [:admin, @customer] do |f| %>
-      <table class="table table-borderless">
-        <tr>
-          <td>会員ID</td>
-          <td><%= @customer.id %></td>
-        </tr>
-
-        <tr>
-          <td class="col-2">氏名</td>
-          <td>
-          <%= f.text_field :last_name, class: "col-2 mr-5" %>
-          <%= f.text_field :first_name, class: "col-2" %>
-          </td>
-        </tr>
-
-        <tr>
-          <td class="col-2">フリガナ</td>
-          <td>
-          <%= f.text_field :last_name_kana, class: "col-2 mr-5" %>
-          <%= f.text_field :first_name_kana, class: "col-2" %>
-          </td>
-        </tr>
-
-        <tr>
-          <td class="col-2">郵便番号</td>
-          <td><%= f.text_field :post_code, class: "col-2" %></td>
-          <td></td>
-        </tr>
-
-        <tr>
-          <td class="col-2">住所</td>
-          <td><%= f.text_field :address, class: "col-6" %></td>
-          <td></td>
-        </tr>
-
-        <tr>
-          <td class="col-2">電話番号</td>
-          <td><%= f.text_field :phone_number, class: "col-2" %></td>
-          <td></td>
-        </tr>
-
-        <tr>
-          <td class="col-2">メールアドレス</td>
-          <td><%= f.text_field :email, class: "col-5" %></td>
-          <td></td>
-        </tr>
-
-        <tr>
-          <td class="col-2">会員ステータス</td>
-          <td>
-            <%= f.radio_button :is_valid, :true %>
-            <%= f.label :is_valid, "有効", { value: :true } %>
-
-            <%= f.radio_button :is_valid, :false %>
-            <%= f.label :is_valid, "退会", { value: :false } %>
-          </td>
-        </tr>
-
-        <tr>
-          <td><%= link_to "戻る", admin_customer_path(@customer), class:"btn btn-primary" %></td>
-          <td><%= f.submit "変更を保存", class:"btn btn-success" %></td>
-        </tr>
-      </table>
-      <% end %>
-    </div>
+    <h5 class="font-weight-bold mb-3 ml-3">会員ID</h5>
+    <p><%= @customer.id %></p>
   </div>
+  <%= form_with model: [:admin, @customer] do |f| %>
+    <div class="row mb-3">
+      <%= f.label "氏名", class: "col-lg-2 col-md-3 col-sm-4 mb-3" %>
+      <%= f.text_field :last_name, autofocus: true, class: "col-lg-3 col-md-3 mx-2" %>
+      <%= f.text_field :first_name, autofocus: true, class: "col-lg-3 col-md-3 mx-2" %>
+    </div>
+
+    <div class="row mb-3">
+      <%= f.label "フリガナ", class: "col-lg-2 col-md-3 col-sm-4 mb-3" %>
+      <%= f.text_field :last_name_kana, autofocus: true, class: "col-lg-3 col-md-3 mx-2" %>
+      <%= f.text_field :first_name_kana, autofocus: true, class: "col-lg-3 col-md-3 mx-2" %>
+    </div>
+
+    <div class="row mb-3">
+      <%= f.label :post_code, "郵便番号", class: "col-lg-2 col-md-3 col-sm-4 mb-3" %>
+      <%= f.text_field :post_code, autofocus: true, autocomplete: "post_code", class: "col-lg-3 col-md-3 mx-2" %>
+    </div>
+
+    <div class="row mb-3">
+      <%= f.label :address, "住所", class: "col-lg-2 col-md-3 col-sm-4 mb-3" %>
+      <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "col-lg-6 col-md-5 col-sm-4 mx-2" %>
+    </div>
+
+    <div class="row mb-3">
+      <%= f.label :phone_number, "電話番号", class: "col-lg-2 col-md-3 col-sm-4 mb-3" %>
+      <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", class: "col-lg-3 col-md-3 mx-2" %>
+    </div>
+  
+    <div class="row mb-3">
+      <%= f.label :email , "メールアドレス", class: "col-lg-2 col-md-3 col-sm-4 mb-3" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-lg-3 col-md-3 mx-2" %>
+    </div>
+  
+    <div class="row">
+      <h5 class="font-weight-bold ml-3 mr-3">会員ステータス</h5>
+      <%= f.radio_button :is_valid, :true, class: "mr-2" %>
+      <%= f.label :is_valid, "有効", value: true, class: "text-success mr-2" %>
+  
+      <%= f.radio_button :is_valid, :false, class: "mr-2" %>
+      <%= f.label :is_valid, "退会", value: false, class: "text-danger mr-2" %>
+    </div>
+  
+    <div>
+      <%= link_to "戻る", admin_customer_path(@customer), class:"btn btn-primary" %>
+    </div>
+    <div class="d-flex justify-content-center">
+      <%= f.submit "変更を保存", class:"btn btn-outline-primary mb-3" %>
+    </div>
+  <% end %>
 </div>

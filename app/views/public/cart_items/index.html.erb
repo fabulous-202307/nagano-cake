@@ -1,56 +1,70 @@
 <div class="container mt-5">
-<!-- カートを空にするボタン -->
-  <div class="col text-right">
-    <%= link_to "カートを空にする", destroy_all_cart_items_path, class: "btn btn-danger", method: :delete %>
+  <!-- カートを空にするボタン -->
+  <div class="text-right">
+    <%= link_to "カートを空にする", destroy_all_cart_items_path, class: "btn btn-outline-danger", method: :delete %>
   </div>
-<!-- ショッピングカートのテーブル -->
+
+  <!-- ショッピングカートのテーブル -->
   <h3 class="font-weight-bold">ショッピングカート</h3>
-    <table class="table table-bordered mt-5">
-      <thead class="table-active">
-        <tr>
-          <th class="col-4">商品名</th>
-          <th class="col-2">単価(税込)</th>
-          <th class="col-2">数量</th>
-          <th class="col-2">小計</th>
-          <th class="col-2"></th>
-        </tr>
-      </thead>
-      <tbody>
+  <table class="table table-bordered mt-5">
+    <thead class="table-active">
+      <tr>
+        <th>商品名</th>
+        <th>単価(税込)</th>
+        <th>数量</th>
+        <th>小計</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
       <% @cart_items.each do |cart_item| %>
-       <tr>
-        <td class="col-4"><%= image_tag cart_item.product.get_image(30,20) %><%= cart_item.product.name %></td>
-        <!-- 消費税を求めるメソッドをproduct.rbに定義 -->
-        <td class="col-2"><%= number_to_currency(cart_item.product.with_tax_price, unit: "¥", format: "%u %n", precision: 0) %></td>
-        <td class="col-2">
-         <%= form_with(model: cart_item, url: cart_item_path(cart_item), local: true, method: :patch) do |form| %>
-         <%= form.select :amount, *[1..10].to_a, prompt: "個数選択" %>
-         <%= form.submit "変更", class: "btn btn-success ml-5" %>
-         <% end %>
-        </td>
-        <!-- 小計を求めるメソッドをcart_item.rbに定義 -->
-        <td class="col-2"><%= number_to_currency(cart_item.subtotal, unit: "¥", format: "%u %n", precision: 0) %></td>
-        <td class="col-2"><%= link_to "削除する", cart_item_path(cart_item.id), method: :delete, class: "btn btn-danger" %></td>
-       </tr>
-        <% end %>
-     </tbody>
-    </table>
-    <!-- 合計金額のテーブル -->
-    <div class="col-3">
-      <table class="table table-bordered mt-5" >
         <tr>
-          <th class="table-active">合計金額</th>
+          <td class="col-4">
+            <%= image_tag cart_item.product.get_image(40, 24) %>
+            <%= cart_item.product.name %>
+          </td>
+          <!-- 消費税を求めるメソッドをproduct.rbに定義 -->
+          <td>
+            <%= number_to_currency(cart_item.product.with_tax_price, unit: "¥", format: "%u %n", precision: 0) %>
+          </td>
+          <td>
+            <%= form_with(model: cart_item, url: cart_item_path(cart_item), local: true, method: :patch) do |form| %>
+              <%= form.select :amount, *[1..10].to_a, prompt: "個数選択" %>
+              <%= form.submit "変更", class: "btn btn-outline-secondary btn-sm ml-5" %>
+            <% end %>
+          </td>
+          <!-- 小計を求めるメソッドをcart_item.rbに定義 -->
+          <td>
+            <%= number_to_currency(cart_item.subtotal, unit: "¥", format: "%u %n", precision: 0) %>
+          </td>
+          <td>
+            <%= link_to "削除する", cart_item_path(cart_item.id), method: :delete, class: "btn btn-outline-danger btn-sm" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <!-- 合計金額のテーブル -->
+  <div class="row mt-5">
+    <div class="col-4 text-left">
+      <%= link_to "買い物を続ける", root_path, class: "btn btn-outline-primary" %>
+    </div>
+    <div class="col-5"></div>
+    <div class="col-3">
+      <table class="table table-bordered">
+        <tr>
+          <th class="table-active text-right">合計金額</th>
           <td><%= number_to_currency(@total_price, unit: "¥", format: "%u %n", precision: 0) %></td>
         </tr>
       </table>
     </div>
-
-  <div class="text-center mt-5 mb-5">
-   <%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %>
   </div>
-
-  <div class="text-right mb-5">
-   <%= link_to "情報入力に進む", new_order_path, class: "btn btn-success" %>
-  </div>
+  <% if current_customer.cart_items.exists?%>
+    <div class="row mt-5 mb-5">
+      <div class="col text-center">
+        <%= link_to "情報入力に進む", new_order_path, class: "btn btn-outline-secondary" %>
+      </div>
+    </div>
+  <% end %>
 </div>
-
-

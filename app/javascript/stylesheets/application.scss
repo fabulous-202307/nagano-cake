@@ -1,5 +1,63 @@
 @use '~bootstrap/scss/bootstrap';
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+    z-index: 0;
+}
+
+
+body:before {
+    background-size: cover;
+    content: '';
+    background-image: url(../images/bg_pink.jpg);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    filter: blur(3px);
+    z-index: -1;
+    opacity: 30%;
+}
+
+header {
+  width: 100%;
+}
+
+main {
+  margin-top: 20px;
+}
+
+th {
+  background-color: #f8fbf8;
+}
+
+td {
+  word-break: break-all;
+}
+
+a {
+  color: #640125;
+}
+
+a:hover {
+  background-color: #e1cfe6;
+  color: #640125;
+}
+
+header a:hover {
+  background-color: #4d021d;
+}
+
+
+
+
 .btn-outline-secondary {
   color:#9d5b8b;
   background-color: transparent;
@@ -102,8 +160,24 @@
   background-color: transparent;
 }
 
-
 footer{
-  position: absolute;
-  bottom: 0;
+  width: 100%;
+}
+
+
+@media screen and (max-width: 768.98px) {
+
+  header {
+    width: 100%;
+  }
+
+  main {
+    width: 100%;
+    display: block;
+  }
+
+  footer {
+    width: 100%;
+  }
+
 }

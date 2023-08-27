@@ -11,3 +11,4 @@ $(document).ready(function() {
     nextArrow: '<div class="slick-next"></div>', // 次へボタンのHTMLコードを指定
   });
 });
+

@@ -33,7 +33,7 @@
           <tr>
             <th class="table-active">商品合計</th>
             <td><%= number_to_currency(@total_price, unit: "¥", format: "%u %n", precision: 0) %></td>
-    
+
           </tr>
           <tr>
             <th class="table-active">請求額</th>
@@ -43,10 +43,36 @@
       </table>
     </div>
   </div>
-    
-  <strong>支払方法</strong> <%= @order.payment_method_i18n %>
-  <br>
-  <strong>お届け先</strong> <%= @order.post_code %><br><%= @order.address %><br><%= @order.name %>
+
+  <div class="row">
+    <div class="col-4">
+      <table  class="table table-bordered">
+        <tbody>
+          <tr>
+            <td class="table-active">支払方法</td>
+            <th><%= @order.payment_method_i18n %></th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+  <div class="col">
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <td class="table-active">お届け先</td>
+          <td>〒<%= @order.post_code %></td>
+          <td><%= @order.address %></td>
+          <td><%= @order.name %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
 
   <%= form_with model: @order, url: orders_path, method: :post do |f| %>
     <%= f.hidden_field :payment_method, value: @order.payment_method %>
@@ -58,7 +84,7 @@
       <%= f.submit "購入を確定する", class: "btn btn-success btn-lg" %>
     </div>
   <% end %>
-  
+
   <div class="col-mb-5 mt-5 mb-5 text-right">
     <%= link_to "注文情報入力に戻る", new_order_path, class: "btn btn-info" %>
   </div>
