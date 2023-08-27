@@ -115,19 +115,15 @@
     </header>
 
     <main>
-
       <% if flash[:notice] %>
         <p class="alert alert-success"><%= notice %></p>
       <% elsif flash[:alert] %>
         <p class="alert alert-danger"><%= alert %></p>
       <% end %>
-      <div class="back">
-        <%= yield %>
-      </div>
-
+      <%= yield %>
     </main>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
     <footer class="fixed-bottom">
       <div class="row d-flex justify-content-between" style="background-color:#d6e9ca">

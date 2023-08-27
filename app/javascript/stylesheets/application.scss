@@ -6,26 +6,6 @@
   box-sizing: border-box;
 }
 
-body {
-    z-index: 0;
-}
-
-
-body:before {
-    background-size: cover;
-    content: '';
-    background-image: url(../images/bg_pink.jpg);
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    filter: blur(3px);
-    z-index: -1;
-    opacity: 30%;
-}
-
 header {
   width: 100%;
 }
@@ -35,7 +15,7 @@ main {
 }
 
 th {
-  background-color: #f8fbf8;
+  background-color: #ffe6ec;
 }
 
 td {
@@ -55,8 +35,26 @@ header a:hover {
   background-color: #4d021d;
 }
 
+body {
+    z-index: 0;
+}
 
 
+body:before {
+    background-size: cover;
+    background-repeat: repeat;
+    content: '';
+    background-image: url(../images/bg_pink.jpg);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    filter: blur(3px);
+    z-index: -1;
+    opacity: 30%;
+}
 
 .btn-outline-secondary {
   color:#9d5b8b;
@@ -163,7 +161,6 @@ header a:hover {
 footer{
   width: 100%;
 }
-
 
 @media screen and (max-width: 768.98px) {
 

@@ -47,10 +47,8 @@
   </div>
 
   <div class="row">
-
     <div class="col-md-9 mt-4">
       <%= render "order_table", order_details: @order_details %>
-      <%= link_to "注文履歴一覧へ戻る", admin_orders_path, class:"btn btn-primary mt-5" %>
     </div>
     <table class="table table-bordered col-md-3">
       <tr>
@@ -72,5 +70,9 @@
         </td>
       </tr>
     </table>
+  </div>
+  
+  <div>
+    <%= link_to "注文履歴一覧へ戻る", admin_orders_path, class:"btn btn-outline-primary mt-5" %>
   </div>
 </div>

@@ -4,7 +4,7 @@
 
   <%= form_with model: @customer, url: customer_registration_path, method: :post do |f| %>
     <%= render "public/shared/error_messages", resource: resource %>
-    <div class="row mb-3">
+    <div class="row mb-3 mt-4">
       <%= f.label "氏名", class: "col-md-2 col-sm-3"%>
       <%= f.label :last_name, "(性)", class: "col-lg-1 col-md-3 col-sm-4 mb-3" %>
       <%= f.text_field :last_name, placeholder: "令和", autofocus: true, required: true, class: "col-lg-3 col-md-3 mx-2" %>
