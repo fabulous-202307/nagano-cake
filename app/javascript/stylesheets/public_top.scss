@@ -62,3 +62,18 @@
   height: 10px;
   background: #000;
 }
+
+.img {
+  width: 500px;
+  height: 300px;
+}
+
+.img-angel,
+.img-angel2 {
+  width: 300px;
+  height: 300px;
+}
+
+.img-angel2 {
+  transform: scale(-1, 1);
+}
