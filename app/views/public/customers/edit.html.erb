@@ -1,4 +1,10 @@
-<div class="container mt-5">
+<div>
+  <%= link_to :back do %>
+    <i class="fa-solid fa-arrow-left fa-xl" style="color: #640125;"></i>
+  <% end %>
+</div>
+<div class="container mt-3">
+
   <h3 class="font-weight-bold mb-5">会員情報編集</h3>
   <%= form_with model: @customer, url: information_update_path do |f| %>
     <div class="row mb-3">
@@ -35,7 +41,7 @@
 
     <div class="row mt-4 offset-lg-2 offset-md-1">
       <%= f.submit "編集内容を保存", class:"btn btn-outline-success" %>
-      <div class="offset-lg-5 offset-md-7 mr-3">
+      <div class="offset-lg-5 offset-md-7 mr-3 mt-3">
         <%= link_to "退会する", confirm_withdraw_path, class:"btn btn-outline-danger" %>
       </div>
     </div>

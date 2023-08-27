@@ -4,6 +4,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
 header {
@@ -32,7 +33,23 @@ a:hover {
 }
 
 header a:hover {
-  background-color: #4d021d;
+  background-color: #640125;
+}
+
+.card {
+  opacity: 75%;
+}
+
+.card-header {
+  background-color: #e1cfe6;
+}
+
+.card-body {
+  background-color: #fff4fa;
+}
+
+.text-danger {
+  color: #800e12;
 }
 
 body {
@@ -58,7 +75,7 @@ body:before {
 
 .btn-outline-secondary {
   color:#9d5b8b;
-  background-color: transparent;
+  background-color: #fff4fa;
   background-image: none;
 }
 
@@ -83,7 +100,7 @@ body:before {
 
 .btn-outline-success {
   color: #88cb7f;
-  background-color: transparent;
+  background-color: #fff4fa;
   background-image: none;
   outline-offset: pink;
 }
@@ -102,14 +119,9 @@ body:before {
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
 }
 
-.btn-outline-primary.disabled, .btn-outline-primary:disabled {
-  color: #88cb7f;
-  background-color: transparent;
-}
-
 .btn-outline-danger {
   color: #e597b2;
-  background-color: transparent;
+  background-color: #fff4fa;
   background-image: none;
   outline-offset: pink;
 }
@@ -135,7 +147,7 @@ body:before {
 
 .btn-outline-primary {
   color: #8491c3;
-  background-color: transparent;
+  background-color: #fff4fa;
   background-image: none;
 }
 
@@ -154,8 +166,8 @@ body:before {
 }
 
 .btn-outline-primary.disabled, .btn-outline-primary:disabled {
-  color:#8491c3;
-  background-color: transparent;
+  color: #88cb7f;
+  background-color: #fdeff2;
 }
 
 footer{

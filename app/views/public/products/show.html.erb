@@ -1,4 +1,9 @@
-<div class="container my-5">
+<div>
+  <%= link_to :back do %>
+    <i class="fa-solid fa-arrow-left fa-xl" style="color: #640125;"></i>
+  <% end %>
+</div>
+<div class="container my-3">
   <div class="row">
 
     <div class="col-lg-3 col-md-4 col-sm-8 mt-5">
@@ -16,7 +21,7 @@
           <%= number_to_currency(@product.with_tax_price, unit: "¥", format: "%u %n", precision: 0 ) %>
         </span>
         <span class="mr-2">(税込)</span>
-        <span class="<%= @product.is_available ? "text-success" : "text-secondary" %>"><%= @product.is_available ? "販売中" : "販売停止中" %></span>
+        <span class="<%= @product.is_available ? "text-success" : "text-danger" %>"><%= @product.is_available ? "販売中" : "販売停止中" %></span>
       </p>
       <%= form_with model: @cart_item do |f| %>
         <div class="row ml-4 mt-5">

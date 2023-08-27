@@ -1,75 +1,82 @@
-<div class="container mt-5">
+<div>
+  <%= link_to :back do %>
+    <i class="fa-solid fa-arrow-left fa-xl" style="color: #640125;"></i>
+  <% end %>
+</div>
+<div class="container mt-3">
 
   <h4 class="font-weight-bold mb-4">注文履歴詳細</h4>
 
   <div class="row">
-    <table class="table table-bordered col-md-6">
-      <tbody>
+    <div>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th>購入者</th>
+            <td>
+              <%= link_to admin_customers_path(@order.customer_id) do %>
+                <%= @full_name %>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <th>注文日</th>
+            <td>
+              <%= l @order.created_at, format: :long %>
+            </td>
+          </tr>
+          <tr>
+            <th>配送先</th>
+            <td>
+              〒<%= @order.post_code %><br>
+              <%= @order.address %><br>
+              <%= @order.name %>
+            </td>
+          </tr>
+          <tr>
+            <th>支払方法</th>
+            <td>
+              <%= @order.payment_method_i18n %>
+            </td>
+          </tr>
+          <tr>
+            <th>注文ステータス</th>
+            <td>
+              <%= form_with model: @order, url: admin_order_path do |f| %>
+                <%= f.select :status, Order.statuses.keys %>
+                <%= f.submit "更新", class:"btn btn-sm btn-outline-success" %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="offset-lg-1">
+      <table class="table table-bordered">
         <tr>
-          <th>購入者</th>
+          <th>商品合計</th>
           <td>
-            <%= link_to admin_customers_path(@order.customer_id) do %>
-              <%= @full_name %>
-            <% end %>
+            <%= number_to_currency(@order.billing_fee - @order.delivery_fee, unit: "¥", format: "%u %n", precision: 0 ) %>
           </td>
         </tr>
         <tr>
-          <th>注文日</th>
+          <th>送料</th>
           <td>
-            <%= l @order.created_at, format: :long %>
+            <%= number_to_currency(@order.delivery_fee, unit: "¥", format: "%u %n", precision: 0 ) %>
           </td>
         </tr>
         <tr>
-          <th>配送先</th>
+          <th>請求金額合計</th>
           <td>
-            〒<%= @order.post_code %><br>
-            <%= @order.address %><br>
-            <%= @order.name %>
+            <%= number_to_currency(@order.billing_fee, unit: "¥", format: "%u %n", precision: 0 ) %>
           </td>
         </tr>
-        <tr>
-          <th>支払方法</th>
-          <td>
-            <%= @order.payment_method_i18n %>
-          </td>
-        </tr>
-        <tr>
-          <th>注文ステータス</th>
-          <td>
-            <%= form_with model: @order, url: admin_order_path do |f| %>
-              <%= f.select :status, Order.statuses.keys %>
-              <%= f.submit "更新", class:"btn btn-sm btn-outline-success" %>
-            <% end %>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+      </table>
+    </div>
   </div>
 
-  <div class="row">
-    <div class="col-md-9 mt-4">
-      <%= render "order_table", order_details: @order_details %>
-    </div>
-    <table class="table table-bordered col-md-3">
-      <tr>
-        <th>商品合計</th>
-        <td>
-          <%= number_to_currency(@order.billing_fee - @order.delivery_fee, unit: "¥", format: "%u %n", precision: 0 ) %>
-        </td>
-      </tr>
-      <tr>
-        <th>送料</th>
-        <td>
-          <%= number_to_currency(@order.delivery_fee, unit: "¥", format: "%u %n", precision: 0 ) %>
-        </td>
-      </tr>
-      <tr>
-        <th>請求金額合計</th>
-        <td>
-          <%= number_to_currency(@order.billing_fee, unit: "¥", format: "%u %n", precision: 0 ) %>
-        </td>
-      </tr>
-    </table>
+  <div class="mt-4">
+    <%= render "order_table", order_details: @order_details %>
   </div>
   
   <div>

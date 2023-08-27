@@ -1,6 +1,11 @@
 <%= flash.now[:alert] %>
 
-<div class="container mt-5">
+<div>
+  <%= link_to :back do %>
+    <i class="fa-solid fa-arrow-left fa-xl" style="color: #640125;"></i>
+  <% end %>
+</div>
+<div class="container mt-3">
   <h3 class="font-weight-bold">注文情報入力</h3>
 
   <%= form_with model: @order, url: confirm_orders_path, method: :post do |f| %>

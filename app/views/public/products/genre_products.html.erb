@@ -1,13 +1,18 @@
-<div class="container my-5">
+<div>
+  <%= link_to :back do %>
+    <i class="fa-solid fa-arrow-left fa-xl" style="color: #640125;"></i>
+  <% end %>
+</div>
+<div class="container mb-5 mt-3">
   <div class="row">
 
-    <div class="col-lg-3 col-md-4 col-sm-8 mb-4">
-      <%= render "public/genres/list", genre: @genre, genres: @genres %>
+    <div class="col-lg-3 col-md-4 col-sm-8 mb-4 mt-5">
+      <%= render "public/genres/list", genres: @genres %>
     </div>
 
     <div class="col-lg-9 col-md-8">
       <% if @products.exists? %>
-        <h3 class="mb-4 font-weight-bold">
+        <h3 class="mb-3 font-weight-bold">
           【<%= @genre.name%>】一覧 (全 <%= @count_products%>件)
         </h3>
         <%= render "index", products: @products %>
