@@ -1,7 +1,40 @@
 .main_contents {
-  background-image: url(/assets/back.webp);
+  background-image: url(/assets/top-back-image.png);
   background-size: cover;
-  // background-position: center;
+  background-position: center;
+}
+
+.about_contents {
+  background-image: url(/assets/about-back-image.jpg);
+  height: 100vh;
+}
+
+/*見出しデザイン*/
+.heading07 {
+	padding-top: 50px;
+	font-size: 26px;
+}
+
+.font-weight-bold {
+  font-weight: 400 !important;
+}
+
+.heading07 span {
+	position: relative;
+	z-index: 2;
+}
+
+.heading07::before {
+	content: attr(data-en);
+	position: absolute;
+	transform: rotate(-5deg);
+	top: 10px;
+	left: 0;
+	color: rgba(224,66,114,0.6);
+	font-size: 80px;
+	font-weight: 400;
+	font-family: luxus-brut, cursive;
+	font-style: italic;
 }
 
 /*背景画像の透過用CSS*/
@@ -29,7 +62,7 @@
 
 .slider li {
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 25px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
   text-align: center;
   background-color: #FFF;
@@ -44,6 +77,17 @@
   font-weight: bold;
 }
 
+.slick-dots li button{
+  width: 100%;
+  height: 100%;
+  background: #669966;
+  border-radius: 50%;
+  color:#fff;
+}
+.slick-dots li.slick-active button{
+  background:#000;
+}
+
 .slick-dots {
   text-align: center;
   margin: 20px 0 0 0;
@@ -55,17 +99,15 @@
 }
 
 .slick-dots button {
-  color: transparent;
-  display: block;
   border: none;
   width: 10px;
   height: 10px;
-  background: #000;
+  background: #669966;
 }
 
 .img {
-  width: 500px;
-  height: 300px;
+  width: 600px;
+  height: 400px;
 }
 
 .img-angel,
