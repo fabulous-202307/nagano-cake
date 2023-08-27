@@ -1,4 +1,6 @@
 class Admin::OrderDetailsController < ApplicationController
+end
+
   before_action :authenticate_admin!
 
   def update
@@ -27,3 +29,4 @@ class Admin::OrderDetailsController < ApplicationController
     params.require(:order_detail).permit(:production_status)
   end
 end
+

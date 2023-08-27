@@ -1,4 +1,5 @@
 class Admin::OrdersController < ApplicationController
+
 before_action :authenticate_admin!
 
   def index
@@ -32,6 +33,5 @@ before_action :authenticate_admin!
   def order_params
     params.require(:order).permit(:status)
   end
-
 end
 

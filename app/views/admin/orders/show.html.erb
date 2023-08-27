@@ -1,5 +1,7 @@
 <div class="container mt-5">
+
   <h4 class="font-weight-bold mb-4">注文履歴詳細</h4>
+
   <div class="row">
     <table class="table table-bordered col-md-6">
       <tbody>
@@ -20,8 +22,8 @@
         <tr>
           <th>配送先</th>
           <td>
-            <%= @order.post_code %>
-            <%= @order.address %>
+            〒<%= @order.post_code %><br>
+            <%= @order.address %><br>
             <%= @order.name %>
           </td>
         </tr>
@@ -45,8 +47,10 @@
   </div>
 
   <div class="row">
+
     <div class="col-md-9 mt-4">
       <%= render "order_table", order_details: @order_details %>
+      <%= link_to "注文履歴一覧へ戻る", admin_orders_path, class:"btn btn-primary mt-5" %>
     </div>
     <table class="table table-bordered col-md-3">
       <tr>
