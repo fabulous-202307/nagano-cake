@@ -1,5 +1,28 @@
 @use '~bootstrap/scss/bootstrap';
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header {
+  width: 100%;
+}
+
+main {
+  margin-top: 20px;
+}
+
+th {
+  background-color: #f8fbf8;
+}
+
+// h1, h2, h3, h3, h4 {
+//   margin: 20px 0;
+// }
+
+
 .btn-outline-secondary {
   color:#9d5b8b;
   background-color: transparent;
@@ -102,7 +125,23 @@
   background-color: transparent;
 }
 
-// footer{
-//   position: absolute;
-//   bottom: 0;
-// }
+footer{
+  width: 100%;
+}
+
+@media screen and (max-width: 768.98px) {
+
+  header {
+    width: 100%;
+  }
+
+  main {
+    width: 100%;
+    display: block;
+  }
+
+  footer {
+    width: 100%;
+  }
+
+}

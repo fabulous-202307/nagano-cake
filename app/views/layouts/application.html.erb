@@ -115,9 +115,9 @@
 
     <main>
       <% if flash[:notice] %>
-        <p class="alert alert-success mt-3"><%= notice %></p>
+        <p class="alert alert-success"><%= notice %></p>
       <% elsif flash[:alert] %>
-        <p class="alert alert-danger mt-3"><%= alert %></p>
+        <p class="alert alert-danger"><%= alert %></p>
       <% end %>
       <%= yield %>
     </main>
