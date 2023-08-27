@@ -1,18 +1,20 @@
 <div class="container my-5">
   <div class="row">
 
-    <div class="col-3">
+    <div class="col-lg-3 col-md-4 col-sm-8 mb-4">
       <%= render "public/genres/list", genre: @genre, genres: @genres %>
     </div>
 
-    <div class="col-9">
+    <div class="col-lg-9 col-md-8">
       <% if @products.exists? %>
-        <h3 class="mb-3 font-weight-bold">
+        <h3 class="mb-4 font-weight-bold">
           【<%= @genre.name%>】一覧 (全 <%= @count_products%>件)
         </h3>
         <%= render "index", products: @products %>
       <%else%>
-        <h4 class="mb-3 font-weight-bold">このジャンルの商品はございません</h4>
+        <div class="d-flex align-items-center offset-lg-1" style="height: 80%;">
+          <h2 class="mb-3 font-weight-bold">このジャンルの商品はございません</h2>
+        </div>
       <% end %>
       </div>
     </div>

@@ -1,11 +1,14 @@
-<div class="container">
-  <h3>ジャンル編集</h3>
+<div class="container mt-5">
   <div class="row">
+    <h4 class="font-weight-bold mb-5 offset-1">ジャンル編集</h4>
+  </div>
+ 
+  <div class="row offset-lg-3 offset-md-1 mt-5">
     <%= form_with model: [:admin, @genre] do |f| %>
       <div class="form-group">
-        <%= f.label "ジャンル名" %>
-        <%= f.text_field :name%>
-        <%= f.submit "変更を保存", class: "btn btn-success rounded-pill" %>
+        <%= f.label "ジャンル名", class: "font-weight-bold mr-3 mb-4" %>
+        <%= f.text_field :name, class: "form-control-lg mr-3 mb-4" %>
+        <%= f.submit "変更を保存", class: "btn btn-outline-secondary btn-lg" %>
       </div>
     <% end %>
   </div>

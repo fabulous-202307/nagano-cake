@@ -116,9 +116,9 @@
     <main>
 
       <% if flash[:notice] %>
-        <p class="alert alert-success mt-3"><%= notice %></p>
+        <p class="alert alert-success"><%= notice %></p>
       <% elsif flash[:alert] %>
-        <p class="alert alert-danger mt-3"><%= alert %></p>
+        <p class="alert alert-danger"><%= alert %></p>
       <% end %>
       <div class="back">
         <%= yield %>
@@ -139,7 +139,7 @@
         </div>
 
         <div class="tell mx-5">
-           ☎︎ 07-6859-0527
+          <i class="fa-solid fa-phone" style="color: #000000;"></i><span class="font-weight-bold"> 07-6859-0527</span>
         </div>
       </div>
     </footer>

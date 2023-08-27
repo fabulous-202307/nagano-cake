@@ -1,8 +1,7 @@
-<div class="container mt-4">
+<div class="container mt-5">
 
-  <div class="row ml-5 pl-5">
-    <h5>商品新規登録</h5>
-  </div>
+  <h4 class="font-weight-bold offset-lg-1 mt-3 mb-4">商品新規登録</h4>
+    
   <div class="d-flex justify-content-center">
     <%= render "layouts/errors", obj: @product %>
   </div>
@@ -14,7 +13,7 @@
         <tbody>
           <tr>
             <th><%= f.label "商品画像" %></th>
-            <td><%= f.file_field :image, accept: "image/*" %></td>
+            <td><%= f.file_field :image, accept: "image/*", class: "btn btn-outline-secondary" %></td>
           </tr>
           <tr>
             <th><%= f.label "商品名" %></th>
@@ -36,15 +35,15 @@
             <th><%= f.label "販売ステータス" %></th>
             <td>
               <%= f.radio_button :is_available, true %>
-              <%= f.label :is_available, "販売中", value: true  %>
+              <%= f.label :is_available, "販売中", value: true, class: "text-success"  %>
               <%= f.radio_button :is_available, false, class: "ml-4" %>
-              <%= f.label :is_available, "販売停止中", value: false  %>
+              <%= f.label :is_available, "販売停止中", value: false, class: "text-danger"  %>
             </td>
           </tr>
         </tbody>
       </table>
       <div class="d-flex justify-content-center">
-        <%= f.submit "新規登録", class: "btn btn-success" %>
+        <%= f.submit "新規登録", class: "btn btn-outline-primary" %>
       </div>
     <% end %>
   </div>
