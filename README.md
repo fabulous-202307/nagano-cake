@@ -1,7 +1,7 @@
 # NAGANO CAKE(ケーキ屋のECサイト)
 
 ## アプリケーション概要
-[![Image from Gyazo](https://i.gyazo.com/7f05d7b5fcb50f34186c4d5d9e809179.jpg)](https://gyazo.com/7f05d7b5fcb50f34186c4d5d9e809179)
+[![Image from Gyazo](https://i.gyazo.com/ce60a2adbbce05aed258b655db161ba6.jpg)](https://gyazo.com/ce60a2adbbce05aed258b655db161ba6)
 
 ### 概要
 
@@ -9,7 +9,7 @@
 
 ### 案件の背景
 
-元々近隣住民が顧客だったが、昨年始めたInatagramから人気となり、全国から注文が来るようになった。
+元々近隣住民が顧客だったが、昨年始めたInstagramから人気となり、全国から注文が来るようになった。
 InstagramのDMやメールで通販の注文を受けていたが、情報管理が煩雑になってきたため、管理機能を含んだ通販サイトを開設しようと思い至った。
 
 ### 通販について
@@ -84,4 +84,4 @@ adminpass
 
 ## 開発者
 
-DMM WEB CAMP チームファビュラス
+DMM WEBCAMP 【チーム ファビュラス】
