@@ -1,6 +1,11 @@
-<div class="container mt-5">
+<div>
+  <%= link_to :back do %>
+    <i class="fa-solid fa-arrow-left fa-xl" style="color: #640125;"></i>
+  <% end %>
+</div>
+<div class="container mt-3">
   
-  <div class="row mb-4 ml-4">
+  <div class="row mb-5 ml-4">
     <h5 class="font-weight-bold">登録情報</h5>
     <%= link_to "編集する", information_path, class:"btn btn-sm btn-outline-success ml-3" %>
   </div>
@@ -34,7 +39,7 @@
     </table>
   </div>
   
-  <div class="row d-flex justify-content-center">
+  <div class="row d-flex justify-content-center mt-5">
     <div class="row mb-2 mr-3">
       <h6 class="font-weight-bold">配送先</h6>
       <%= link_to "一覧を見る ", addresses_path, class:"btn btn-sm btn-outline-secondary mx-2" %>

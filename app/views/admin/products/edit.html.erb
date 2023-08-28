@@ -1,4 +1,10 @@
-<div class="container mt-4">
+<div>
+  <%= link_to :back do %>
+    <i class="fa-solid fa-arrow-left fa-xl" style="color: #640125;"></i>
+  <% end %>
+</div>
+
+<div class="container mt-3">
 
   <div class="row ml-5 pl-5">
     <h5>商品編集</h5>
@@ -47,7 +53,7 @@
         </tbody>
       </table>
       <div class="d-flex justify-content-center">
-        <%= f.submit "変更を保存", class: "btn btn-success" %>
+        <%= f.submit "変更を保存", class: "btn btn-outline-success" %>
       </div>
     <% end %>
   </div>

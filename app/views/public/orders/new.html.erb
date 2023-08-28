@@ -1,6 +1,11 @@
 <%= flash.now[:alert] %>
 
-<div class="container mt-5">
+<div>
+  <%= link_to :back do %>
+    <i class="fa-solid fa-arrow-left fa-xl" style="color: #640125;"></i>
+  <% end %>
+</div>
+<div class="container mt-3">
   <h3 class="font-weight-bold">注文情報入力</h3>
 
   <%= form_with model: @order, url: confirm_orders_path, method: :post do |f| %>
@@ -60,7 +65,7 @@
         <%= f.text_field :name, placeholder: "令和道子", class: "form-control" %>
       </div>
       <div class="col-md-10 mt-5 mb-5 text-center">
-        <%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
+        <%= f.submit "確認画面へ進む", class: "btn btn-outline-primary" %>
       </div>
     </div>
   <% end %>
