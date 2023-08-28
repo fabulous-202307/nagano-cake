@@ -1,5 +1,4 @@
 class Admin::OrdersController < ApplicationController
-
 before_action :authenticate_admin!
 
   def index
@@ -24,7 +23,7 @@ before_action :authenticate_admin!
       order_detail.save
       end
     end
-    
+
     redirect_to admin_order_path(@order)
   end
 

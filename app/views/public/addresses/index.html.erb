@@ -1,4 +1,9 @@
-<div class="container mt-5">
+<div>
+  <%= link_to :back do %>
+    <i class="fa-solid fa-arrow-left fa-xl" style="color: #640125;"></i>
+  <% end %>
+</div>
+<div class="container mt-3">
   <h3 class="font-weight-bold mb-5">配送先登録/一覧</h3>
 
   <%= form_with model: @address, url: addresses_path, method: :post do |f| %>

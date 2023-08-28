@@ -1,12 +1,15 @@
-<div class="container">
-  <div class="row">
-    <h1>注文履歴一覧</h1>
-  </div>
+<div>
+  <%= link_to :back do %>
+    <i class="fa-solid fa-arrow-left fa-xl" style="color: #640125;"></i>
+  <% end %>
+</div>
+<div class="container mt-3">
+  <h3 class="font-weight-bold mb-5">注文履歴一覧</h3>
 
   <div class="row">
     <% if @orders.exists? %>
       <table class="table table-bordered">
-        <thead class="thead-light">
+        <thead>
           <tr>
             <th>注文日</th>
             <th>配送先</th>
@@ -32,7 +35,7 @@
               </td>
               <td><%= number_to_currency(order.billing_fee, unit: "¥", format: "%u %n", precision: 0 ) %></td>
               <td><%= order.status %></td>
-              <td><%= link_to "詳細", order_detail_path(order.id), class: "btn btn-primary btn-sm p-2" %></td>
+              <td><%= link_to "詳細", order_detail_path(order.id), class: "btn btn-outline-primary btn-sm p-2" %></td>
             </tr>
           <% end  %>
         </tbody>
@@ -40,5 +43,8 @@
     <% else %>
       <p>まだご注文されていません</p>
     <% end %>
+  </div>
+  <div class="row d-flex justify-content-center mt-5">
+    <%= paginate @orders %>
   </div>
 </div>

@@ -4,26 +4,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-}
-
-body {
-    z-index: 0;
-}
-
-
-body:before {
-    background-size: cover;
-    content: '';
-    background-image: url(../images/bg_pink.jpg);
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    filter: blur(3px);
-    z-index: -1;
-    opacity: 30%;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
 header {
@@ -52,15 +33,49 @@ a:hover {
 }
 
 header a:hover {
-  background-color: #4d021d;
+  background-color: #640125;
+}
+
+.card {
+  opacity: 75%;
+}
+
+.card-header {
+  background-color: #e1cfe6;
+}
+
+.card-body {
+  background-color: #fff4fa;
+}
+
+.text-danger {
+  color: #800e12;
+}
+
+body {
+    z-index: 0;
 }
 
 
-
+body:before {
+    background-size: cover;
+    background-repeat: repeat;
+    content: '';
+    background-image: url(../images/bg_pink.jpg);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    filter: blur(3px);
+    z-index: -1;
+    opacity: 30%;
+}
 
 .btn-outline-secondary {
   color:#9d5b8b;
-  background-color: transparent;
+  background-color: #fff4fa;
   background-image: none;
 }
 
@@ -85,7 +100,7 @@ header a:hover {
 
 .btn-outline-success {
   color: #88cb7f;
-  background-color: transparent;
+  background-color: #fff4fa;
   background-image: none;
   outline-offset: pink;
 }
@@ -104,14 +119,9 @@ header a:hover {
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
 }
 
-.btn-outline-primary.disabled, .btn-outline-primary:disabled {
-  color: #88cb7f;
-  background-color: transparent;
-}
-
 .btn-outline-danger {
   color: #e597b2;
-  background-color: transparent;
+  background-color: #fff4fa;
   background-image: none;
   outline-offset: pink;
 }
@@ -137,7 +147,7 @@ header a:hover {
 
 .btn-outline-primary {
   color: #8491c3;
-  background-color: transparent;
+  background-color: #fff4fa;
   background-image: none;
 }
 
@@ -156,14 +166,13 @@ header a:hover {
 }
 
 .btn-outline-primary.disabled, .btn-outline-primary:disabled {
-  color:#8491c3;
-  background-color: transparent;
+  color: #88cb7f;
+  background-color: #fdeff2;
 }
 
 footer{
   width: 100%;
 }
-
 
 @media screen and (max-width: 768.98px) {
 

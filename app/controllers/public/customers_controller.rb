@@ -23,7 +23,7 @@ class Public::CustomersController < ApplicationController
   def withdraw
     current_customer.update(is_valid: false)
     reset_session
-    flash[:notice] = "退会処理を実行いたしました"
+    flash[:alert] = "退会処理を実行いたしました"
     redirect_to root_path
   end
 
