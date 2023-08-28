@@ -1,0 +1,37 @@
+<div>
+  <%= link_to :back do %>
+    <i class="fa-solid fa-arrow-left fa-xl" style="color: #640125;"></i>
+  <% end %>
+</div>
+<div class="container my-3">
+  <div class="row">
+
+    <div class="col-lg-3 col-md-4 col-sm-8 mt-5">
+      <%= render "public/genres/list", genres: @genres %>
+    </div>
+
+    <div class="col-lg-4 col-md-3 mt-5">
+      <%=image_tag @product.get_image(288, 216) %>
+    </div>
+    <div class="col-lg-5 col-md-4 mt-5">
+      <h4><%= @product.name %></h4>
+      <p><%= @product.detail %></p>
+      <p class="mt-5">
+        <span class="font-weight-bold">
+          <%= number_to_currency(@product.with_tax_price, unit: "¥", format: "%u %n", precision: 0 ) %>
+        </span>
+        <span class="mr-2">(税込)</span>
+        <span class="<%= @product.is_available ? "text-success" : "text-danger" %>"><%= @product.is_available ? "販売中" : "販売停止中" %></span>
+      </p>
+      <%= form_with model: @cart_item do |f| %>
+        <div class="row ml-4 mt-5">
+          <%= f.select :amount, *[1..10] %>
+          <%= f.hidden_field :product_id, value: @product.id %>
+          <%= button_tag type: "submit", class: "btn btn-outline-secondary btn-sm ml-2" do %>
+            <i class="fa-solid fa-cart-plus fa-xl" style="color: #640125;"></i>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

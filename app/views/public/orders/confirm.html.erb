@@ -1,0 +1,91 @@
+<div class="container mt-5">
+  <h3 class="font-weight-bold">注文確認画面</h3>
+  <div class="row">
+    <div class="col-8">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>商品名</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @cart_items.each do |cart_item| %>
+            <tr>
+              <td><%= image_tag cart_item.product.get_image(30, 20) %> <%= cart_item.product.name %></td>
+              <td><%= number_to_currency(cart_item.product.with_tax_price , unit: "¥", format: "%u %n", precision: 0) %></td>
+              <td><%= cart_item.amount %></td>
+              <td><%= number_to_currency(cart_item.subtotal, unit: "¥", format: "%u %n", precision: 0)%></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      </div>
+      <div class="col-4">
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th>送料</th>
+            <td><%= number_to_currency(@order.delivery_fee, unit: "¥", format: "%u %n", precision: 0) %></td>
+          </tr>
+          <tr>
+            <th>商品合計</th>
+            <td><%= number_to_currency(@total_price, unit: "¥", format: "%u %n", precision: 0) %></td>
+
+          </tr>
+          <tr>
+            <th>請求額</th>
+            <td><%= number_to_currency(@total_sum, unit: "¥", format: "%u %n", precision: 0) %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-4">
+      <table  class="table table-bordered">
+        <tbody>
+          <tr>
+            <th>支払方法</th>
+            <td><%= @order.payment_method_i18n %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+  <div class="col">
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <th>お届け先</th>
+          <td>〒<%= @order.post_code %></td>
+          <td><%= @order.address %></td>
+          <td><%= @order.name %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+  <%= form_with model: @order, url: orders_path, method: :post do |f| %>
+    <%= f.hidden_field :payment_method, value: @order.payment_method %>
+    <%= f.hidden_field :address, value: @order.address %>
+    <%= f.hidden_field :post_code, value: @order.post_code %>
+    <%= f.hidden_field :name, value: @order.name %>
+
+    <div class="text-center mt-3">
+      <%= f.submit "購入を確定する", class: "btn btn-outline-secondary btn-lg" %>
+    </div>
+  <% end %>
+
+  <div class="col-mb-5 mt-5 mb-5 text-right">
+    <%= link_to "注文情報入力に戻る", new_order_path, class: "btn btn-outline-primary" %>
+  </div>
+</div>

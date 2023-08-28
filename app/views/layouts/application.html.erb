@@ -5,13 +5,143 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/5c06f61b2d.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="p-5">
+    <header class= "fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#640125;" >
+        <%= link_to root_path, data:{"turbolinks" => false} do %>
+          <img class="navbar-brand"><%= image_tag("logo.png", width: "20%" ) %>
+        <% end %>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <% if customer_signed_in? %>
+          <div class="collapse navbar-collapse justify-content-center" >
+            <div class="text-light">
+               <%= current_customer.full_name %> 様ようこそ！
+            </div>
+          </div>
+        <% end %>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ml-auto">
+            <% if customer_signed_in? %>
+              <li>
+                <%= link_to mypage_path, class: "nav-link text-light" do %>
+                  <i style="color: white"></i>マイページ
+                <% end %>
+              </li>
+              <li>
+                <%= link_to products_path, class: "nav-link text-light" do %>
+                  <i style="color: white"></i>商品一覧
+                <% end %>
+              </li>
+              <li>
+                <%= link_to  cart_items_path, class: "nav-link text-light" do %>
+                  <i class="fa-solid fa-cart-shopping fa-xl" style="color: white"></i>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to  destroy_customer_session_path, method: :delete, class: "nav-link text-light" do %>
+                  <i class="fa-solid fa-right-from-bracket fa-xl" style="color: white"></i>
+                <% end %>
+              </li>
+
+            <% elsif admin_signed_in? %>
+              <li>
+                <%= link_to admin_products_path, class: "nav-link text-light" do %>
+                  <i style="color: white"></i>商品一覧
+                <% end %>
+              </li>
+              <li>
+                <%= link_to admin_customers_path, class: "nav-link text-light" do %>
+                  <i style="color: white"></i>会員一覧
+                <% end %>
+              </li>
+              <li>
+                <%= link_to admin_orders_path, class: "nav-link text-light" do %>
+                  <i style="color: white"></i>注文履歴一覧
+                <% end %>
+              </li>
+              <li>
+                <%= link_to admin_genres_path,class: "nav-link text-light" do %>
+                  <i style="color: white"></i>ジャンル一覧
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_admin_session_path, method: :delete,class: "nav-link text-light" do %>
+                  <i <i "fa-solid fa-cart-shopping" style="color: white"></i>ログアウト
+                <% end %>
+              </li>
+
+            <% else %>
+              <li>
+                <%= link_to about_path, class: "nav-link text-light" do %>
+                  <i style="color: white"></i>About
+                <% end %>
+              </li>
+              <li>
+                <%= link_to products_path, class: "nav-link text-light" do %>
+                  <i style="color: white"></i>商品一覧
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_customer_registration_path,class: "nav-link text-light" do %>
+                  <i style="color: white"></i>新規登録
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_customer_session_path,class: "nav-link text-light" do %>
+                  <i style="color: white"></i>ログイン
+                <% end %>
+              </li>
+            <% end %>
+
+            <form>
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>
+            </form>
+
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <% if flash[:notice] %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% elsif flash[:alert] %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+      <%= yield %>
+    </main>
+
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <footer class="fixed-bottom">
+      <div class="row d-flex justify-content-between" style="background-color:#d6e9ca">
+        <div class="icon mx-5">
+          <%= link_to new_admin_session_path, class: "text-reset btn text-decoration-none" do%>
+            <i class="fa-solid fa-user-shield"></i>
+          <% end %>
+          <i class="fa-brands fa-square-facebook btn"></i>
+          <i class="fa-brands fa-square-x-twitter btn"></i>
+          <i class="fa-brands fa-square-instagram btn"></i>
+        </div>
+
+        <div class="tell mx-5">
+          <i class="fa-solid fa-phone" style="color: #000000;"></i><span class="font-weight-bold"> 07-6859-0527</span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
+

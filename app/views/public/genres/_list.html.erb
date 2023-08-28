@@ -1,0 +1,14 @@
+<div class="card border-dark mr-5">
+  <div class="card-header">
+    ジャンル一覧
+  </div>
+  <div class="card-body">
+    <% genres.each do |genre| %>
+      <ul style="list-style: none;">
+        <%= link_to genre_products_path(genre.id) do %>
+          <li><%= genre.name%></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</div>

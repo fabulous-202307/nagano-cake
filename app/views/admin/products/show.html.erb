@@ -1,0 +1,48 @@
+<div>
+  <%= link_to :back do %>
+    <i class="fa-solid fa-arrow-left fa-xl" style="color: #640125;"></i>
+  <% end %>
+</div>
+<div class="container mt-3">
+
+  <h4 class="font-weight-bold mb-5">商品詳細</h4>
+
+  <div class="row">
+    <div class="col-lg-5 mx-2 mb-4">
+      <%=image_tag @product.get_image(360, 270) %>
+    </div>
+    <div class="col-lg-6 col-md-9 col-sm-4">
+      <table class="table table-borderless">
+        <tr>
+          <th>商品名</th>
+          <td><%= @product.name %></td>
+        </tr>
+        <tr>
+          <th>商品説明</th>
+          <td class="details" style="width: 69%;"><%= @product.detail %></td>
+        </tr>
+        <tr>
+          <th>ジャンル</th>
+          <td><%= @product.genre.name %></td>
+        </tr>
+        <tr>
+          <th>税込価格<br>(税抜価格)</th>
+          <td class="font-weight-bold"><%= number_to_currency(@product.with_tax_price, unit: "¥", format: "%u %n", precision: 0 ) %><br> (<%= number_to_currency(@product.price, unit: "¥", format: "%u %n", precision: 0 ) %>)</td>
+        </tr>
+        <tr>
+          <th>販売ステータス</th>
+          <td class="font-weight-bold">
+            <% if @product.is_available %>
+              <p class="text-success">販売中</p>
+            <% else %>
+              <p class="text-secondary">販売停止中</p>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center mt-4">
+    <%= link_to "編集する", edit_admin_product_path, class: "btn btn-outline-success" %>
+  </div>
+</div>

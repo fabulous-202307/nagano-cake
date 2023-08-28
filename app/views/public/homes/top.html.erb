@@ -1,0 +1,53 @@
+<div class="main_contents">
+ <div class="bkRGBA">
+  <div class="row t-10">
+   <div class="col-lg-2 col-md-3 offset-1 mt-5">
+     <%= render "public/genres/list", genres: @genre %>
+    </div>
+    <div class="col-md-7">
+      <div class="text-center">
+        <p class="heading07 fs-1 fw-bold font-weight-bold mt-5" data-en="Welcome to NaganoCake">
+         ようこそ、ながのCAKEへ！</br>
+         このサイトは、ケーキ販売のECサイトになります。</br>
+         会員でない方も商品の閲覧はできますが、</br>
+         購入には会員登録が必要になります。
+        </p>
+      </div>
+    </div>
+  </div>
+      <div>
+        <div class="col mt-5">
+            <h3 class="text-center"><strong>新着商品</strong></h3>
+            <div class="swiper mt-4">
+             <div class="swiper-wrapper">
+              <ul class="swiper-slide slider">
+                <% @products.each do |product| %>
+                <li>
+                <%= link_to product_path(product) do %>
+                  <p class="caption mx-2">
+                  <%= image_tag product.get_image(160, 120) %>
+                  </p>
+                  <% end %>
+                  <p class="caption"><%= product.name %></p>
+                  <p class="caption"><%= number_to_currency(product.with_tax_price, unit: "¥", format: "%u %n", precision: 0 ) %></p>
+                  <p class="font-weight-bold">
+                    <% if product.is_available %>
+                      <p class="text-success">販売中</p>
+                    <% else %>
+                      <p class="text-secondary">販売停止中</p>
+                    <% end %>
+                  </p>
+                </li>
+                <% end %>
+              </ul>
+             </div>
+            </div>
+            <div class="text-center d-grid gap-2 col-8 mx-auto">
+             <button type="button" class="btn btn-outline-primary w-50 mt-5 mb-5">
+              <%= link_to "全ての商品を見る >", products_path %>
+             </button>
+            </div>
+        </div>
+      </div>
+  </div>
+ </div>

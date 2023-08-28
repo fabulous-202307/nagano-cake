@@ -1,24 +1,87 @@
-# README
+# NAGANO CAKE(ケーキ屋のECサイト)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## アプリケーション概要
+[![Image from Gyazo](https://i.gyazo.com/ce60a2adbbce05aed258b655db161ba6.jpg)](https://gyazo.com/ce60a2adbbce05aed258b655db161ba6)
 
-Things you may want to cover:
+### 概要
 
-* Ruby version
+長野県にある洋菓子店「ながのCAKE」様の商品を通販するためのECサイト開発。
 
-* System dependencies
+### 案件の背景
 
-* Configuration
+元々近隣住民が顧客だったが、昨年始めたInstagramから人気となり、全国から注文が来るようになった。
+InstagramのDMやメールで通販の注文を受けていたが、情報管理が煩雑になってきたため、管理機能を含んだ通販サイトを開設しようと思い至った。
 
-* Database creation
+### 通販について
 
-* Database initialization
+* 通販では注文に応じて制作する受注生産型としている。
+* 現在通販での注文料は十分に対応可能な量のため、１日の受注量に制限は設けない。
+* 送料は１配送につき全国一律８００円
+* 友人や家族へのプレゼントなど、注文者の住所以外にも商品を発送できる。
+* 支払い方法はクレジットカード、銀行振込から選択できる。
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## 使用言語
 
-* Deployment instructions
+* HTML
+* CSS
+* SCSS
+* Ruby
+* JavaScript
+* フレームワーク
+    - Ruby on Rails
 
-* ...
+## 使用方法
+
+```bash
+$ git clone git@github.com:fabulous-202307/nagano-cake.git
+$ cd nagano-cake
+$ bundle install
+$ rails db:migrate
+$ rails db:seed
+$ yarn add @babel/plugin-proposal-private-methods @babel/plugin-proposal-private-property-in-object
+$ rails s
+```
+#### 管理者用アカウント
+
+* **メールアドレス**:
+admin@email.com
+
+* **パスワード**:
+adminpass
+
+* **管理者用ログインURL**:
+/admin/sign_in
+
+#####  顧客側の操作は顧客用のサインアップが必要となります。
+
+* **顧客用サインアップURL**:
+/customers/sign_up
+
+## ER図
+
+
+[![Image from Gyazo](https://i.gyazo.com/093722877206af13900f547309e66b8f.png)](https://gyazo.com/093722877206af13900f547309e66b8f)
+
+## アプリケーション設計書
+
+[![Image from Gyazo](https://i.gyazo.com/2c38c95b817705c5d83e748028b8a799.jpg)](https://gyazo.com/2c38c95b817705c5d83e748028b8a799)
+
+## Gem一覧
+
+[![Image from Gyazo](https://i.gyazo.com/4a038d061cce27578d7e502818086e4a.jpg)](https://gyazo.com/4a038d061cce27578d7e502818086e4a)
+
+
+## 動作環境
+
+* Railsバージョン : 6.1.7.4
+
+* Rubyバージョン : 3.1.2
+
+* データベース : SQLite3
+
+* OS : Linux
+
+## 開発者
+
+DMM WEBCAMP 【チーム ファビュラス】
